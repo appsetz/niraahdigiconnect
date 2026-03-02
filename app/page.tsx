@@ -8,6 +8,7 @@ import HowWeWorkSection from '@/components/HowWeWorkSection'
 import WorkshopsSection from '@/components/WorkshopsSection'
 import WhyNiraahSection from '@/components/WhyNiraahSection'
 import TeamSection from '@/components/TeamSection'
+import FAQSection from '@/components/FAQSection'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
 
@@ -24,6 +25,7 @@ export default function Home() {
       <WorkshopsSection />
       <WhyNiraahSection />
       <TeamSection />
+      <FAQSection />
       <CTASection />
       <Footer />
     </main>

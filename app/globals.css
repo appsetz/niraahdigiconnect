@@ -504,3 +504,89 @@ a, button, input, textarea, select, [role="button"], [onclick] {
   }
 }
 
+/* Viral Flow Path Animations */
+@keyframes viralPathDash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -25;
+  }
+}
+
+@keyframes floatAlongPath1 {
+  0% {
+    offset-distance: 0%;
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes floatAlongPath2 {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes floatAlongPath3 {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes viralGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(139, 92, 246, 1));
+  }
+}
+
+@keyframes viralPulseScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+}
+
+.viral-path {
+  animation: viralPathDash 3s linear infinite;
+}
+
+.viral-particle {
+  animation: viralGlow 3s ease-in-out infinite;
+}
+
+.particle-1 {
+  animation: floatAlongPath1 5s ease-in infinite;
+}
+
+.particle-2 {
+  animation: floatAlongPath2 5s ease-in infinite 1.67s;
+}
+
+.particle-3 {
+  animation: floatAlongPath3 5s ease-in infinite 3.34s;
+}
+

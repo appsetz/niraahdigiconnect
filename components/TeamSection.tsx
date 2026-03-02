@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TeamSection = () => {
   return (
@@ -39,20 +38,9 @@ const TeamSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Navigation */}
-        <div className="flex justify-center gap-4 mt-8">
-          <button className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-            <ChevronLeft size={24} />
-          </button>
-          <button className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-            <ChevronRight size={24} />
-          </button>
-        </div>
       </div>
     </section>
   );
 };
 
 export default TeamSection;
-

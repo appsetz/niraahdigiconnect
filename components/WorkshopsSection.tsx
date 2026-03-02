@@ -11,40 +11,49 @@ const WorkshopsSection = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <span className="badge-yellow">OUR SERVICES</span>
-            
+
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-              Online Workshops & Skill Training
+              Workshops & Practical Training Programs
             </h2>
 
             <div className="space-y-4">
-              <p className="text-lg text-gray-700 font-semibold">
-                We offer training in:
+              <p className="text-lg text-gray-700">
+                We conduct result-oriented workshops designed for business owners, freelancers, students, and working professionals who want to generate real results using digital platforms — not just learn theory.
               </p>
-              
-              <ul className="space-y-3 text-lg text-gray-700">
-                <li className="flex items-center gap-3">
-                  <span className="text-green-600">•</span> Social Media Management
+
+              <ul className="space-y-4 text-lg text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">1.</span>
+                  <div>
+                    <span className="font-bold">Meta Ads Mastery</span> – Learn to create, launch, and optimize high-converting campaigns.
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-green-600">•</span> Meta Ads (Facebook & Instagram)
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">2.</span>
+                  <div>
+                    <span className="font-bold">Social Media Management</span> – Manage Instagram and Facebook pages strategically, not randomly.
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-green-600">•</span> Google My Business
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">3.</span>
+                  <div>
+                    <span className="font-bold">Google My Business Growth</span> – Rank locally and attract genuine customers through search and maps.
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-green-600">•</span> Video Editing
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-green-600">•</span> Poster & Creative Editing
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">4.</span>
+                  <div>
+                    <span className="font-bold">Canva for Business</span> – Create professional, sales-driven content without depending on designers.
+                  </div>
                 </li>
               </ul>
 
               <div className="pt-4 space-y-3">
                 <p className="text-base text-gray-700">
-                  <strong>Execution-focused training</strong> built on real campaigns, not theory.
+                  <strong>Live practical implementation</strong> with real campaign setup and strategy clarity.
                 </p>
                 <p className="text-base text-gray-700">
-                  Live online training with recordings and <strong>MSME-recognized certification</strong>
+                  Sessions structured from basics to advanced levels for <strong>measurable results</strong>.
                 </p>
               </div>
             </div>

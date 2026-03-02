@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Footer = () => {
@@ -19,12 +20,17 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Company Info */}
           <div className="space-y-4 animate-fadeInUp">
-            <a href="#home" className="flex items-center gap-2 group w-fit">
-              <div className="text-2xl transition-transform duration-300 group-hover:rotate-12">👋</div>
-              <span className="text-xl font-bold group-hover:text-yellow-600 transition-colors duration-300">Niraah</span>
+            <a href="#home" className="flex items-center group w-fit">
+              <Image
+                src="/images/Niraah logo with Text with out background.png"
+                alt="Niraah Digi Connect"
+                width={140}
+                height={48}
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
             </a>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Niraah is a licensed marketing agency with years of experience in performance marketing and strategic growth.
+              NIRAAH DIGI CONNECT is a strategy-first marketing agency that builds predictable systems to turn attention into revenue.
             </p>
             <form onSubmit={handleSubmit} className="flex items-center gap-2 text-sm">
               <input
@@ -35,7 +41,7 @@ const Footer = () => {
                 required
                 className="flex-1 px-4 py-2.5 border border-gray-300 rounded-full focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 transition-all duration-300"
               />
-              <button 
+              <button
                 type="submit"
                 className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:scale-110 transition-all duration-300 group"
               >
@@ -50,7 +56,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm sm:text-base text-gray-600">
               {['ABOUT US', 'CAREERS', 'SERVICES', 'BLOG'].map((item, index) => (
                 <li key={item}>
-                  <a 
+                  <a
                     href={`#${item.toLowerCase().replace(' ', '-')}`}
                     className="hover:text-yellow-600 hover:translate-x-2 inline-block transition-all duration-300 relative group"
                   >
@@ -68,7 +74,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm sm:text-base text-gray-600">
               {['FEATURES', 'PRICING', 'NEWS', 'HELP DESK', 'SUPPORT'].map((item, index) => (
                 <li key={item}>
-                  <a 
+                  <a
                     href={`#${item.toLowerCase().replace(' ', '-')}`}
                     className="hover:text-yellow-600 hover:translate-x-2 inline-block transition-all duration-300 relative group"
                   >

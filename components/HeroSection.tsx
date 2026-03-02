@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Play } from 'lucide-react';
+import ViralFlowPath from './ViralFlowPath';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,18 +18,16 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="animate-fadeInDown">
-              <span className="badge-yellow inline-block">WELCOME TO NIRAAH</span>
+              <span className="badge-yellow inline-block">NIRAAH DIGI CONNECT</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fadeInUp">
-              Scaling Brands{' '}
-              <span className="text-gray-400 block sm:inline">with Performance Marketing</span>{' '}
-              <span className="block mt-2">& Strategic Growth</span>
+              Where Strategy Meets{' '}
+              <span className="text-gray-400 block sm:inline">Measurable Growth</span>
             </h1>
 
             <p className="text-base sm:text-lg text-gray-600 max-w-xl animate-fadeInUp stagger-2">
-              Helping brands, personal brands, and institutes grow through Meta Ads, 
-              social media, and data-driven strategy.
+              We don’t sell random digital services. We build predictable systems that turn attention into revenue.
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fadeInUp stagger-3">
@@ -51,7 +50,7 @@ const HeroSection = () => {
                   <div className="text-xs sm:text-sm font-semibold text-gray-600">Company Budget</div>
                   <div className="text-2xl sm:text-3xl font-bold text-green-600">$12.5</div>
                 </div>
-                
+
                 {/* Person placeholder */}
                 <div className="w-32 h-32 sm:w-48 sm:h-48 bg-yellow-400 rounded-full flex items-center justify-center text-5xl sm:text-6xl animate-float">
                   👤
@@ -85,6 +84,19 @@ const HeroSection = () => {
               <div className="text-xs sm:text-sm text-gray-600 mt-2 uppercase tracking-wide">Professionals Team</div>
             </div>
           </div>
+        </div>
+
+        {/* Viral Flow Path Section */}
+        <div className={`mt-20 sm:mt-32 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.4s' }}>
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 animate-fadeInUp">
+              How Your Brand Goes <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-cyan-500 to-yellow-500">Viral</span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto animate-fadeInUp stagger-2">
+              We transform your ideas into viral campaigns through our proven 4-stage process
+            </p>
+          </div>
+          <ViralFlowPath />
         </div>
       </div>
     </section>

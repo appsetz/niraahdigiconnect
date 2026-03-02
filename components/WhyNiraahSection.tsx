@@ -34,17 +34,23 @@ const WhyNiraahSection = () => {
           {/* Right - Content */}
           <div className="order-1 lg:order-2 space-y-6">
             <span className="badge-yellow">WHY CHOOSE US</span>
-            
+
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-              We are team with enthusiasm for communication
+              We Build Digital Identities That Grow Businesses
             </h2>
 
             <p className="text-lg text-gray-700">
-              Your business has a story to tell and we're here to make it heard with Meta Ads. Our team has the skills to make your brand stand out.
+              At NIRAAH DIGI CONNECT, we don't just run random campaigns. We focus on building strong digital identities that deliver measurable results and actual business growth.
             </p>
 
             <div className="space-y-4">
-              {reasons.map((reason, index) => (
+              {[
+                'Goal-oriented strategies (leads, sales, awareness)',
+                'Highly customized plans specifically for your business',
+                'All-in-one digital growth responsibility',
+                'Creativity that converts through strong visuals',
+                'Complete transparency with clear performance reports'
+              ].map((reason, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Check size={16} className="text-white" />
@@ -55,7 +61,7 @@ const WhyNiraahSection = () => {
             </div>
 
             <button className="btn-primary mt-6">
-              VIEW MORE
+              BOOK A CONSULTATION
               <span>→</span>
             </button>
           </div>
