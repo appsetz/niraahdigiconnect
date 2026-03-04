@@ -9,115 +9,122 @@ const ResultsSection = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) setIsVisible(true); }),
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const cards = [
+    {
+      icon: TrendingUp,
+      value: '↑ 250%',
+      metric: 'Visibility Growth',
+      title: 'Increased Visibility',
+      desc: 'Driven by insight-based content planning',
+      color: '#22c55e',
+    },
+    {
+      icon: Target,
+      value: '-40%',
+      metric: 'Cost Per Lead',
+      title: 'Optimized Ad Spend',
+      desc: 'With measurable lead generation',
+      color: '#4ade80',
+    },
+    {
+      icon: Users,
+      value: '95%',
+      metric: 'Success Rate',
+      title: 'Real Implementation',
+      desc: 'Real outcomes from workshop participants',
+      color: '#86efac',
+    },
+  ];
+
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative"
+      style={{ background: 'linear-gradient(180deg, #050f08 0%, #071a0d 100%)' }}
+    >
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%)', filter: 'blur(40px)' }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="badge-yellow inline-block animate-scaleIn">RESULTS & INSIGHTS</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6 mb-4 px-4">
-            Look at the insights we brought for our clients
+          <span className="badge-green inline-block animate-scaleIn">RESULTS & INSIGHTS</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6 mb-4 px-4" style={{ color: '#f0fdf4' }}>
+            Real Results for{' '}
+            <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Real Clients
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg max-w-2xl mx-auto px-4" style={{ color: '#bbf7d0' }}>
             We show real performance, not inflated promises.
           </p>
         </div>
 
         {/* Results Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {/* Card 1 */}
-          <div className={`service-card group transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="mb-4 overflow-hidden rounded-xl">
-              <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <div className="text-center">
-                  <TrendingUp className="mx-auto mb-3 text-green-600" size={32} />
-                  <div className="text-4xl sm:text-5xl font-bold text-green-600 animate-pulse-slow">↑ 250%</div>
-                  <div className="text-xs sm:text-sm text-gray-600 mt-2">Visibility Growth</div>
+          {cards.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={i}
+                className={`service-card group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${i * 150}ms` }}
+              >
+                <div
+                  className="mb-4 overflow-hidden rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
+                  style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: '12px', padding: '24px' }}
+                >
+                  <div className="text-center">
+                    <Icon className="mx-auto mb-3" size={32} style={{ color: card.color }} />
+                    <div className="text-4xl sm:text-5xl font-bold animate-pulse-slow" style={{ color: card.color }}>{card.value}</div>
+                    <div className="text-xs sm:text-sm mt-2" style={{ color: '#bbf7d0' }}>{card.metric}</div>
+                  </div>
                 </div>
+                <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#f0fdf4' }}>{card.title}</h3>
+                <p className="text-xs sm:text-sm" style={{ color: '#bbf7d0' }}>{card.desc}</p>
               </div>
-            </div>
-            <h3 className="text-base sm:text-lg font-bold mb-2 group-hover:text-green-600 transition-colors duration-300">Increased Visibility</h3>
-            <p className="text-xs sm:text-sm text-gray-600">
-              Driven by insight-based content planning
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className={`service-card group transition-all duration-700 delay-150 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="mb-4 overflow-hidden rounded-xl">
-              <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <div className="text-center">
-                  <Target className="mx-auto mb-3 text-orange-600" size={32} />
-                  <div className="text-4xl sm:text-5xl font-bold text-orange-600 animate-pulse-slow">-40%</div>
-                  <div className="text-xs sm:text-sm text-gray-600 mt-2">Cost Per Lead</div>
-                </div>
-              </div>
-            </div>
-            <h3 className="text-base sm:text-lg font-bold mb-2 group-hover:text-orange-600 transition-colors duration-300">Optimized Ad Spend</h3>
-            <p className="text-xs sm:text-sm text-gray-600">
-              With measurable lead generation
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className={`service-card group transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="mb-4 overflow-hidden rounded-xl">
-              <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <div className="text-center">
-                  <Users className="mx-auto mb-3 text-purple-600" size={32} />
-                  <div className="text-4xl sm:text-5xl font-bold text-purple-600 animate-pulse-slow">95%</div>
-                  <div className="text-xs sm:text-sm text-gray-600 mt-2">Success Rate</div>
-                </div>
-              </div>
-            </div>
-            <h3 className="text-base sm:text-lg font-bold mb-2 group-hover:text-purple-600 transition-colors duration-300">Real Implementation</h3>
-            <p className="text-xs sm:text-sm text-gray-600">
-              Real outcomes from workshop participants
-            </p>
-          </div>
+            );
+          })}
         </div>
 
         {/* Additional Metrics */}
-        <div className={`mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div className={`mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {[
             { value: '5.6M+', label: 'Total Reach' },
             { value: '12K+', label: 'Leads Generated' },
             { value: '80+', label: 'Active Campaigns' },
-            { value: '4.8', label: 'Client Rating' }
+            { value: '4.8★', label: 'Client Rating' },
           ].map((metric, index) => (
-            <div 
+            <div
               key={metric.label}
-              className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-50 hover:shadow-lg hover:-translate-y-2 transition-all duration-500 group cursor-pointer"
-              style={{ transitionDelay: `${(index + 5) * 100}ms` }}
+              className="text-center p-4 sm:p-6 rounded-xl group cursor-pointer transition-all duration-500 hover:-translate-y-2"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(34,197,94,0.15)',
+                transitionDelay: `${(index + 5) * 100}ms`,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(74,222,128,0.4)';
+                (e.currentTarget as HTMLElement).style.background = 'rgba(34,197,94,0.08)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(34,197,94,0.15)';
+                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)';
+              }}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-gray-900 group-hover:text-yellow-600 group-hover:scale-110 transform transition-all duration-300">
+              <div className="text-2xl sm:text-3xl font-bold group-hover:scale-110 transform transition-all duration-300" style={{ color: '#22c55e' }}>
                 {metric.value}
               </div>
-              <div className="text-xs sm:text-sm text-gray-600 mt-2">{metric.label}</div>
+              <div className="text-xs sm:text-sm mt-2" style={{ color: '#86efac' }}>{metric.label}</div>
             </div>
           ))}
         </div>
@@ -127,4 +134,3 @@ const ResultsSection = () => {
 };
 
 export default ResultsSection;
-

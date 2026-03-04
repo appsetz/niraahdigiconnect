@@ -13,9 +13,9 @@ export interface Testimonial {
 
 interface TestimonialsCarouselProps {
     testimonials: Testimonial[];
-    speed?: number; // Duration in seconds for one full scroll
-    direction?: "left" | "right"; // Scroll direction
-    cardHeight?: number; // Height of the testimonial card
+    speed?: number;
+    direction?: "left" | "right";
+    cardHeight?: number;
     className?: string;
 }
 
@@ -41,10 +41,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
         <div className={`overflow-hidden w-full ${className}`} ref={containerRef}>
             <motion.div
                 animate={{
-                    x:
-                        direction === "left"
-                            ? [0, -carouselWidth]
-                            : [-carouselWidth, 0],
+                    x: direction === "left" ? [0, -carouselWidth] : [-carouselWidth, 0],
                 }}
                 transition={{
                     duration: speed,
@@ -57,16 +54,22 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     <motion.div
                         key={index}
                         whileHover={{ scale: 1.05, rotate: 1 }}
-                        className={`bg-white my-3 border-2 border-gray-100 shadow-md rounded-3xl p-4 flex-shrink-0 w-[320px]`}
-                        style={{ height: cardHeight }}
+                        className="my-3 rounded-3xl p-5 flex-shrink-0 w-[320px] flex flex-col justify-between"
+                        style={{
+                            height: cardHeight,
+                            background: 'rgba(255,255,255,0.05)',
+                            backdropFilter: 'blur(16px)',
+                            WebkitBackdropFilter: 'blur(16px)',
+                            border: '1px solid rgba(34,197,94,0.2)',
+                        }}
                     >
-                        <p className="text-sm leading-relaxed text-justify break-words whitespace-normal overflow-hidden text-gray-700">
+                        <p className="text-sm leading-relaxed text-justify break-words whitespace-normal overflow-hidden" style={{ color: '#bbf7d0' }}>
                             {highlight
                                 ? text.split(highlight).map((part, idx, arr) => (
                                     <React.Fragment key={idx}>
                                         {part}
                                         {idx !== arr.length - 1 && (
-                                            <span className="text-yellow-600 font-semibold">
+                                            <span style={{ color: '#4ade80', fontWeight: 600 }}>
                                                 {highlight}
                                             </span>
                                         )}
@@ -75,10 +78,10 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                                 : text}
                         </p>
 
-                        <div className="flex items-center gap-3 mt-4">
+                        <div className="flex items-center gap-3 mt-3">
                             <div className="flex flex-col">
-                                <div className="font-medium leading-tight text-gray-900">{name}</div>
-                                <div className="opacity-60 text-sm text-gray-600">{role}</div>
+                                <div className="font-semibold leading-tight" style={{ color: '#f0fdf4' }}>{name}</div>
+                                <div className="text-sm opacity-70" style={{ color: '#86efac' }}>{role}</div>
                             </div>
                         </div>
                     </motion.div>
