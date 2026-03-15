@@ -17,8 +17,8 @@ const Footer = () => {
     <footer
       className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       style={{
-        background: '#020b05',
-        borderTop: '1px solid rgba(34,197,94,0.15)',
+        background: '#f0fdf4',
+        borderTop: '1px solid rgba(22,163,74,0.2)',
       }}
     >
       {/* Top ambient glow */}
@@ -40,7 +40,7 @@ const Footer = () => {
                 className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </a>
-            <p className="text-sm leading-relaxed" style={{ color: '#86efac' }}>
+            <p className="text-sm leading-relaxed" style={{ color: '#166534' }}>
               NIRAAH DIGI CONNECT is a strategy-first marketing agency that builds predictable systems to turn attention into revenue.
             </p>
             <form onSubmit={handleSubmit} className="flex items-center gap-2 text-sm">
@@ -52,12 +52,12 @@ const Footer = () => {
                 required
                 className="flex-1 px-4 py-2.5 rounded-full text-sm focus:outline-none transition-all duration-300"
                 style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(34,197,94,0.25)',
-                  color: '#f0fdf4',
+                  background: 'rgba(255,255,255,0.8)',
+                  border: '1px solid rgba(22,163,74,0.3)',
+                  color: '#0f2817',
                 }}
-                onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(74,222,128,0.6)'; }}
-                onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(34,197,94,0.25)'; }}
+                onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(22,163,74,0.6)'; }}
+                onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(22,163,74,0.3)'; }}
               />
               <button
                 type="submit"
@@ -71,16 +71,16 @@ const Footer = () => {
 
           {/* Company Links */}
           <div className="animate-fadeInUp stagger-2">
-            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#f0fdf4' }}>COMPANY</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#0f2817' }}>COMPANY</h3>
             <ul className="space-y-3 text-sm sm:text-base">
               {['ABOUT US', 'CAREERS', 'SERVICES', 'BLOG'].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(' ', '-')}`}
                     className="hover:translate-x-2 inline-block transition-all duration-300 relative group"
-                    style={{ color: '#86efac' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#4ade80')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#86efac')}
+                    style={{ color: '#15803d' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#16a34a')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#15803d')}
                   >
                     {item}
                     <span
@@ -95,7 +95,7 @@ const Footer = () => {
 
           {/* Product Links */}
           <div className="animate-fadeInUp stagger-3">
-            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#f0fdf4' }}>PRODUCT</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#0f2817' }}>PRODUCT</h3>
             <ul className="space-y-3 text-sm sm:text-base">
               {['FEATURES', 'PRICING', 'NEWS', 'HELP DESK', 'SUPPORT'].map((item) => (
                 <li key={item}>
@@ -119,25 +119,25 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="animate-fadeInUp stagger-4">
-            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#f0fdf4' }}>CONTACT</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-4" style={{ color: '#0f2817' }}>CONTACT</h3>
             <div className="space-y-4">
-              <p className="text-sm leading-relaxed" style={{ color: '#86efac' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#166534' }}>
                 Your business has a story to tell and we're here to make it heard.
               </p>
               <div className="space-y-3">
                 <a
                   href="mailto:hello@niraah.com"
                   className="flex items-start gap-3 text-sm group hover:translate-x-2 transition-all duration-300"
-                  style={{ color: '#86efac' }}
+                  style={{ color: '#15803d' }}
                 >
                   <Mail size={18} className="mt-1 flex-shrink-0 group-hover:text-green-400 transition-colors" />
                   <span className="group-hover:text-green-400 transition-colors break-all">hello@niraah.com</span>
                 </a>
-                <div className="flex items-start gap-3 text-sm group hover:translate-x-2 transition-all duration-300" style={{ color: '#86efac' }}>
+                <div className="flex items-start gap-3 text-sm group hover:translate-x-2 transition-all duration-300" style={{ color: '#15803d' }}>
                   <Phone size={18} className="mt-1 flex-shrink-0" />
                   <span>+91 XXX XXX XXXX</span>
                 </div>
-                <div className="flex items-start gap-3 text-sm group hover:translate-x-2 transition-all duration-300" style={{ color: '#86efac' }}>
+                <div className="flex items-start gap-3 text-sm group hover:translate-x-2 transition-all duration-300" style={{ color: '#15803d' }}>
                   <MapPin size={18} className="mt-1 flex-shrink-0" />
                   <span>India</span>
                 </div>
@@ -149,9 +149,9 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div
           className="pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm"
-          style={{ borderTop: '1px solid rgba(34,197,94,0.1)', color: '#4ade80' }}
+          style={{ borderTop: '1px solid rgba(22,163,74,0.15)', color: '#16a34a' }}
         >
-          <p className="text-center md:text-left" style={{ color: '#86efac' }}>
+          <p className="text-center md:text-left" style={{ color: '#15803d' }}>
             © 2026 Niraah Digi Connect. All rights reserved.
           </p>
           <div className="flex gap-4 sm:gap-6">
@@ -160,9 +160,9 @@ const Footer = () => {
                 key={link}
                 href={`#${link.toLowerCase().replace(' ', '-')}`}
                 className="relative group transition-all duration-300"
-                style={{ color: '#86efac' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#4ade80')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#86efac')}
+                style={{ color: '#15803d' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#16a34a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#15803d')}
               >
                 {link}
                 <span

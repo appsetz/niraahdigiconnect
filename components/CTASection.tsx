@@ -20,7 +20,7 @@ const CTASection = () => {
     <section
       ref={sectionRef}
       className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative"
-      style={{ background: 'linear-gradient(180deg, #050f08 0%, #020b05 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #dcfce7 0%, #ffffff 100%)' }}
     >
       {/* Ambient glows */}
       <div
@@ -37,9 +37,9 @@ const CTASection = () => {
         <div
           className="rounded-3xl p-8 sm:p-12 relative overflow-hidden"
           style={{
-            background: 'rgba(255,255,255,0.04)',
+            background: 'rgba(255,255,255,0.8)',
             backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(34,197,94,0.25)',
+            border: '1px solid rgba(22,197,74,0.25)',
           }}
         >
           {/* Inner gradient */}
@@ -52,13 +52,13 @@ const CTASection = () => {
             {/* Left Content */}
             <div className={`space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <span className="badge-green">READY TO SCALE?</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#f0fdf4' }}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#0f2817' }}>
                 Let's discuss{' '}
                 <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   your project
                 </span>
               </h2>
-              <p className="text-base sm:text-lg" style={{ color: '#bbf7d0' }}>
+              <p className="text-base sm:text-lg" style={{ color: '#166534' }}>
                 Ready to scale your brand? Let's build growth that's measurable and sustainable.
               </p>
               <button className="btn-primary w-full sm:w-auto justify-center group">

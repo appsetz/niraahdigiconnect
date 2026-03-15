@@ -29,22 +29,22 @@ const ContactPage = () => {
         width: '100%',
         padding: '12px 16px',
         borderRadius: '12px',
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(34,197,94,0.25)',
-        color: '#f0fdf4',
+        background: 'rgba(255,255,255,0.85)',
+        border: '1px solid rgba(22,163,74,0.3)',
+        color: '#0f2817',
         outline: 'none',
         transition: 'border-color 0.3s ease',
     };
 
     return (
-        <main className="min-h-screen" style={{ background: 'linear-gradient(160deg, #020b05 0%, #050f08 50%, #071a0d 100%)' }}>
+        <main className="min-h-screen" style={{ background: 'linear-gradient(160deg, #ffffff 0%, #f0fdf4 50%, #dcfce7 100%)' }}>
             {/* Header */}
             <header
                 className="fixed top-0 left-0 right-0 z-50 py-4"
                 style={{
-                    background: 'rgba(2,11,5,0.85)',
+                    background: 'rgba(255,255,255,0.9)',
                     backdropFilter: 'blur(20px)',
-                    borderBottom: '1px solid rgba(34,197,94,0.15)',
+                    borderBottom: '1px solid rgba(22,163,74,0.15)',
                 }}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,9 +62,9 @@ const ContactPage = () => {
                         <Link
                             href="/"
                             className="flex items-center gap-2 transition-colors duration-300"
-                            style={{ color: '#bbf7d0' }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = '#4ade80')}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = '#bbf7d0')}
+                            style={{ color: '#15803d' }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = '#16a34a')}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = '#15803d')}
                         >
                             <ArrowLeft size={20} />
                             <span className="hidden sm:inline font-medium">Back to Home</span>
@@ -79,13 +79,13 @@ const ContactPage = () => {
                     {/* Page Header */}
                     <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <span className="badge-green inline-block animate-scaleIn">GET IN TOUCH</span>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-6" style={{ color: '#f0fdf4' }}>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-6" style={{ color: '#0f2817' }}>
                             Let's Start a{' '}
                             <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                                 Conversation
                             </span>
                         </h1>
-                        <p className="text-lg mt-4 max-w-2xl mx-auto" style={{ color: '#bbf7d0' }}>
+                        <p className="text-lg mt-4 max-w-2xl mx-auto" style={{ color: '#166534' }}>
                             Ready to scale your brand? We'd love to hear from you.
                         </p>
                     </div>
@@ -98,7 +98,7 @@ const ContactPage = () => {
                                 className="rounded-3xl p-6 sm:p-8"
                                 style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)', border: '1px solid rgba(34,197,94,0.2)' }}
                             >
-                                <h3 className="text-xl font-bold mb-6" style={{ color: '#f0fdf4' }}>Contact Information</h3>
+                                <h3 className="text-xl font-bold mb-6" style={{ color: '#0f2817' }}>Contact Information</h3>
                                 <div className="space-y-5">
                                     {[
                                         { href: 'mailto:hello@niraah.com', icon: <Mail size={20} />, label: 'Email us', value: 'hello@niraah.com' },
@@ -115,8 +115,8 @@ const ContactPage = () => {
                                                     {item.icon}
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs" style={{ color: '#86efac' }}>{item.label}</p>
-                                                    <p className="font-semibold" style={{ color: '#f0fdf4' }}>{item.value}</p>
+                                                    <p className="text-xs" style={{ color: '#15803d' }}>{item.label}</p>
+                                                    <p className="font-semibold" style={{ color: '#0f2817' }}>{item.value}</p>
                                                 </div>
                                             </div>
                                         );
@@ -139,8 +139,8 @@ const ContactPage = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <p className="text-xs" style={{ color: '#86efac' }}>WhatsApp</p>
-                                            <p className="font-semibold" style={{ color: '#f0fdf4' }}>+91 7603 839 337</p>
+                                            <p className="text-xs" style={{ color: '#15803d' }}>WhatsApp</p>
+                                            <p className="font-semibold" style={{ color: '#0f2817' }}>+91 7603 839 337</p>
                                         </div>
                                     </a>
                                 </div>
@@ -175,8 +175,8 @@ const ContactPage = () => {
                                         >
                                             <Send size={36} style={{ color: '#4ade80' }} />
                                         </div>
-                                        <h3 className="text-2xl font-bold mb-3" style={{ color: '#f0fdf4' }}>Message Sent!</h3>
-                                        <p className="mb-6" style={{ color: '#bbf7d0' }}>Thank you for reaching out. We'll get back to you soon.</p>
+                                        <h3 className="text-2xl font-bold mb-3" style={{ color: '#0f2817' }}>Message Sent!</h3>
+                                        <p className="mb-6" style={{ color: '#166534' }}>Thank you for reaching out. We'll get back to you soon.</p>
                                         <button
                                             onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' }); }}
                                             className="btn-secondary"
@@ -186,7 +186,7 @@ const ContactPage = () => {
                                     </div>
                                 ) : (
                                     <>
-                                        <h3 className="text-2xl font-bold mb-6" style={{ color: '#f0fdf4' }}>Send us a Message</h3>
+                                        <h3 className="text-2xl font-bold mb-6" style={{ color: '#0f2817' }}>Send us a Message</h3>
                                         <form onSubmit={handleSubmit} className="space-y-5">
                                             <div className="grid sm:grid-cols-2 gap-5">
                                                 {[
@@ -196,7 +196,7 @@ const ContactPage = () => {
                                                     { label: 'Company Name', name: 'company', type: 'text', required: false, placeholder: 'Your Company' },
                                                 ].map((field) => (
                                                     <div key={field.name}>
-                                                        <label className="block text-sm font-medium mb-2" style={{ color: '#86efac' }}>{field.label}</label>
+                                                        <label className="block text-sm font-medium mb-2" style={{ color: '#15803d' }}>{field.label}</label>
                                                         <input
                                                             type={field.type}
                                                             name={field.name}
@@ -205,15 +205,15 @@ const ContactPage = () => {
                                                             required={field.required}
                                                             placeholder={field.placeholder}
                                                             style={inputStyle}
-                                                            onFocus={(e) => (e.target.style.borderColor = 'rgba(74,222,128,0.6)')}
-                                                            onBlur={(e) => (e.target.style.borderColor = 'rgba(34,197,94,0.25)')}
+                                                            onFocus={(e) => (e.target.style.borderColor = 'rgba(22,163,74,0.6)')}
+                                                            onBlur={(e) => (e.target.style.borderColor = 'rgba(22,163,74,0.3)')}
                                                         />
                                                     </div>
                                                 ))}
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium mb-2" style={{ color: '#86efac' }}>Service Interested In</label>
+                                                <label className="block text-sm font-medium mb-2" style={{ color: '#15803d' }}>Service Interested In</label>
                                                 <select
                                                     name="service"
                                                     value={formData.service}
@@ -231,7 +231,7 @@ const ContactPage = () => {
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium mb-2" style={{ color: '#86efac' }}>Your Message *</label>
+                                                <label className="block text-sm font-medium mb-2" style={{ color: '#15803d' }}>Your Message *</label>
                                                 <textarea
                                                     name="message"
                                                     value={formData.message}
@@ -240,8 +240,8 @@ const ContactPage = () => {
                                                     rows={5}
                                                     placeholder="Tell us about your project or goals..."
                                                     style={{ ...inputStyle, resize: 'none' }}
-                                                    onFocus={(e) => (e.target.style.borderColor = 'rgba(74,222,128,0.6)')}
-                                                    onBlur={(e) => (e.target.style.borderColor = 'rgba(34,197,94,0.25)')}
+                                                    onFocus={(e) => (e.target.style.borderColor = 'rgba(22,163,74,0.6)')}
+                                                    onBlur={(e) => (e.target.style.borderColor = 'rgba(22,163,74,0.3)')}
                                                 />
                                             </div>
 
@@ -265,7 +265,7 @@ const ContactPage = () => {
             {/* Footer */}
             <footer
                 className="py-8 px-4 sm:px-6 lg:px-8"
-                style={{ borderTop: '1px solid rgba(34,197,94,0.1)', color: '#86efac' }}
+                style={{ borderTop: '1px solid rgba(22,163,74,0.15)', color: '#15803d' }}
             >
                 <div className="max-w-7xl mx-auto text-center text-sm">
                     <p>© 2026 Niraah Digi Connect. All rights reserved.</p>

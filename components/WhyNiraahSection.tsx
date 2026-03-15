@@ -15,7 +15,7 @@ const WhyNiraahSection = () => {
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #071a0d 0%, #0a2414 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #dcfce7 0%, #f0fdf4 100%)' }}
     >
       {/* Ambient glow */}
       <div
@@ -57,14 +57,14 @@ const WhyNiraahSection = () => {
           <div className="order-1 lg:order-2 space-y-6">
             <span className="badge-green">WHY CHOOSE US</span>
 
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#f0fdf4' }}>
+            <h2 className="text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#0f2817' }}>
               We Build Digital Identities{' '}
               <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 That Grow Businesses
               </span>
             </h2>
 
-            <p className="text-lg" style={{ color: '#bbf7d0' }}>
+            <p className="text-lg" style={{ color: '#166534' }}>
               At NIRAAH DIGI CONNECT, we don't just run random campaigns. We focus on building strong digital identities that deliver measurable results and actual business growth.
             </p>
 
@@ -77,7 +77,7 @@ const WhyNiraahSection = () => {
                   >
                     <Check size={14} className="text-white" />
                   </div>
-                  <p className="text-base" style={{ color: '#bbf7d0' }}>{reason}</p>
+                  <p className="text-base" style={{ color: '#166534' }}>{reason}</p>
                 </div>
               ))}
             </div>

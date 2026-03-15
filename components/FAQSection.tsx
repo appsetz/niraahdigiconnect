@@ -23,7 +23,7 @@ const FAQSection = () => {
         <section
             id="faq"
             className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative overflow-hidden"
-            style={{ background: 'linear-gradient(180deg, #050f08 0%, #071a0d 100%)' }}
+            style={{ background: 'linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%)' }}
         >
             <div
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-64 pointer-events-none"
@@ -35,7 +35,7 @@ const FAQSection = () => {
                     {/* Left — Heading */}
                     <div className="flex flex-col justify-start">
                         <span className="badge-green inline-block mb-6 w-fit">FAQS</span>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#f0fdf4' }}>
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#0f2817' }}>
                             All Questions
                             <span
                                 className="block mt-2"
@@ -44,7 +44,7 @@ const FAQSection = () => {
                                 Answered
                             </span>
                         </h2>
-                        <p className="mt-6 text-lg max-w-md leading-relaxed" style={{ color: '#bbf7d0' }}>
+                        <p className="mt-6 text-lg max-w-md leading-relaxed" style={{ color: '#166534' }}>
                             Find answers to everything you need to know about our services and how we can help your business grow.
                         </p>
                     </div>
@@ -56,14 +56,14 @@ const FAQSection = () => {
                                 key={index}
                                 className="rounded-2xl overflow-hidden transition-all duration-300"
                                 style={{
-                                    background: openIndex === index ? 'rgba(34,197,94,0.08)' : 'rgba(255,255,255,0.04)',
+                                    background: openIndex === index ? 'rgba(34,197,94,0.07)' : 'rgba(255,255,255,0.8)',
                                     backdropFilter: 'blur(12px)',
-                                    border: openIndex === index ? '1px solid rgba(74,222,128,0.4)' : '1px solid rgba(34,197,94,0.15)',
+                                    border: openIndex === index ? '1px solid rgba(22,163,74,0.4)' : '1px solid rgba(22,163,74,0.18)',
                                 }}
                             >
                                 <button
                                     className="w-full flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg transition-colors"
-                                    style={{ color: '#f0fdf4' }}
+                                    style={{ color: '#0f2817' }}
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 >
                                     <span className="pr-4">{faq.question}</span>
@@ -71,7 +71,7 @@ const FAQSection = () => {
                                         <ChevronDown
                                             size={20}
                                             style={{
-                                                color: openIndex === index ? '#4ade80' : '#86efac',
+                                                color: openIndex === index ? '#16a34a' : '#15803d',
                                                 transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
                                                 transition: 'transform 0.3s ease, color 0.3s ease',
                                             }}
@@ -82,8 +82,8 @@ const FAQSection = () => {
                                     <div
                                         className="px-5 sm:px-6 pb-5 sm:pb-6 animate-fadeInDown"
                                         style={{
-                                            color: '#bbf7d0',
-                                            borderTop: '1px solid rgba(34,197,94,0.15)',
+                                            color: '#166534',
+                                            borderTop: '1px solid rgba(22,163,74,0.15)',
                                             paddingTop: '12px',
                                         }}
                                     >

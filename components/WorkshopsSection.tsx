@@ -7,7 +7,7 @@ const WorkshopsSection = () => {
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #0a2414 0%, #050f08 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%)' }}
     >
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none"
@@ -20,7 +20,7 @@ const WorkshopsSection = () => {
           <div className="space-y-6">
             <span className="badge-green">OUR SERVICES</span>
 
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#f0fdf4' }}>
+            <h2 className="text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#0f2817' }}>
               Workshops &{' '}
               <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Practical Training
@@ -28,7 +28,7 @@ const WorkshopsSection = () => {
             </h2>
 
             <div className="space-y-4">
-              <p className="text-lg" style={{ color: '#bbf7d0' }}>
+              <p className="text-lg" style={{ color: '#166534' }}>
                 We conduct result-oriented workshops designed for business owners, freelancers, students, and working professionals who want to generate real results using digital platforms — not just learn theory.
               </p>
 
@@ -41,25 +41,25 @@ const WorkshopsSection = () => {
                 ].map((item) => (
                   <li key={item.num} className="flex items-start gap-3">
                     <span className="font-bold mt-1 text-lg" style={{ color: '#4ade80' }}>{item.num}</span>
-                    <div style={{ color: '#bbf7d0' }}>
-                      <span className="font-bold" style={{ color: '#f0fdf4' }}>{item.title}</span> – {item.desc}
+                    <div style={{ color: '#166534' }}>
+                      <span className="font-bold" style={{ color: '#0f2817' }}>{item.title}</span> – {item.desc}
                     </div>
                   </li>
                 ))}
               </ul>
 
               <div className="pt-4 space-y-3">
-                <p className="text-base" style={{ color: '#bbf7d0' }}>
-                  <strong style={{ color: '#f0fdf4' }}>Live practical implementation</strong> with real campaign setup and strategy clarity.
+                <p className="text-base" style={{ color: '#166534' }}>
+                  <strong style={{ color: '#0f2817' }}>Live practical implementation</strong> with real campaign setup and strategy clarity.
                 </p>
-                <p className="text-base" style={{ color: '#bbf7d0' }}>
-                  Sessions structured from basics to advanced levels for <strong style={{ color: '#f0fdf4' }}>measurable results</strong>.
+                <p className="text-base" style={{ color: '#166534' }}>
+                  Sessions structured from basics to advanced levels for <strong style={{ color: '#0f2817' }}>measurable results</strong>.
                 </p>
               </div>
             </div>
 
             <button className="btn-primary mt-4">
-              LEARN MORE
+              Join a Workshop
               <ArrowRight size={18} />
             </button>
           </div>
@@ -69,9 +69,9 @@ const WorkshopsSection = () => {
             <div
               className="rounded-3xl p-6 relative overflow-hidden"
               style={{
-                background: 'rgba(255,255,255,0.04)',
+                background: 'rgba(255,255,255,0.75)',
                 backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(34,197,94,0.2)',
+                border: '1px solid rgba(22,163,74,0.2)',
               }}
             >
               <div

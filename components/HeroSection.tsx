@@ -15,7 +15,7 @@ const HeroSection = () => {
     <section
       id="home"
       className="relative pt-28 sm:pt-36 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #020b05 0%, #050f08 50%, #071a0d 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #ffffff 0%, #f0fdf4 50%, #dcfce7 100%)' }}
     >
       {/* Background ambient orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -49,18 +49,22 @@ const HeroSection = () => {
               <span className="badge-green inline-block">NIRAAH DIGI CONNECT</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fadeInUp" style={{ color: '#f0fdf4' }}>
-              Where Strategy Meets{' '}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fadeInUp" style={{ color: '#0f2817' }}>
+              We help local businesses generate{' '}
               <span
                 className="block sm:inline"
                 style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
               >
-                Measurable Growth
+                qualified leads
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg max-w-xl animate-fadeInUp stagger-2" style={{ color: '#bbf7d0' }}>
-              We don't sell random digital services. We build predictable systems that turn attention into revenue.
+            <p className="text-base sm:text-lg max-w-xl animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
+              Using Meta Ads and conversion-focused social media systems.
+            </p>
+
+            <p className="text-base sm:text-lg max-w-xl animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
+              We help businesses grow in two ways — <strong style={{ color: '#0f2817' }}>done-for-you marketing services</strong> and <strong style={{ color: '#0f2817' }}>practical skill-building workshops</strong>.
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fadeInUp stagger-3">
@@ -74,19 +78,6 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-wrap gap-6 animate-fadeInUp stagger-4">
-              {[
-                { value: '5.6M+', label: 'Total Reach' },
-                { value: '12K+', label: 'Leads Generated' },
-                { value: '4.8★', label: 'Client Rating' },
-              ].map((item) => (
-                <div key={item.label} className="text-center">
-                  <div className="text-xl font-bold" style={{ color: '#4ade80' }}>{item.value}</div>
-                  <div className="text-xs mt-1 uppercase tracking-wide" style={{ color: '#86efac' }}>{item.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right Content — Glass visual panel */}
@@ -95,9 +86,9 @@ const HeroSection = () => {
             <div
               className="rounded-3xl p-8 relative overflow-hidden animate-green-glow"
               style={{
-                background: 'rgba(255,255,255,0.05)',
+                background: 'rgba(255,255,255,0.75)',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(34,197,94,0.25)',
+                border: '1px solid rgba(22,163,74,0.25)',
               }}
             >
               {/* Inner glow */}
@@ -139,25 +130,25 @@ const HeroSection = () => {
               <div
                 className="absolute top-6 right-6 rounded-xl px-4 py-2 text-right animate-fadeInDown stagger-4"
                 style={{
-                  background: 'rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.7)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(34,197,94,0.3)',
+                  border: '1px solid rgba(22,163,74,0.3)',
                 }}
               >
-                <div className="text-xs" style={{ color: '#86efac' }}>Revenue Growth</div>
-                <div className="text-xl font-bold" style={{ color: '#4ade80' }}>↑ 250%</div>
+                <div className="text-xs" style={{ color: '#15803d' }}>Revenue Growth</div>
+                <div className="text-xl font-bold" style={{ color: '#16a34a' }}>↑ 250%</div>
               </div>
 
               <div
                 className="absolute bottom-6 left-6 rounded-xl px-4 py-2 animate-fadeInUp stagger-5"
                 style={{
-                  background: 'rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.7)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(34,197,94,0.3)',
+                  border: '1px solid rgba(22,163,74,0.3)',
                 }}
               >
-                <div className="text-xs" style={{ color: '#86efac' }}>Active Campaigns</div>
-                <div className="text-xl font-bold" style={{ color: '#4ade80' }}>80+</div>
+                <div className="text-xs" style={{ color: '#15803d' }}>Active Campaigns</div>
+                <div className="text-xl font-bold" style={{ color: '#16a34a' }}>80+</div>
               </div>
             </div>
 
@@ -165,20 +156,20 @@ const HeroSection = () => {
             <div
               className="mt-6 rounded-2xl p-5"
               style={{
-                background: 'rgba(255,255,255,0.04)',
+                background: 'rgba(255,255,255,0.7)',
                 backdropFilter: 'blur(12px)',
-                border: '1px solid rgba(34,197,94,0.15)',
+                border: '1px solid rgba(22,163,74,0.18)',
               }}
             >
-              <div className="grid grid-cols-3 gap-4 divide-x" style={{ borderColor: 'rgba(34,197,94,0.2)' }}>
+              <div className="grid grid-cols-3 gap-4 divide-x" style={{ borderColor: 'rgba(22,163,74,0.2)' }}>
                 {[
                   { value: '12', label: 'Yrs Experience' },
                   { value: '5.6M+', label: 'Total Users' },
                   { value: '80+', label: 'Team' },
                 ].map((s) => (
                   <div key={s.label} className="text-center px-2">
-                    <div className="text-2xl font-bold" style={{ color: '#22c55e' }}>{s.value}</div>
-                    <div className="text-xs mt-1 uppercase tracking-wide" style={{ color: '#86efac' }}>{s.label}</div>
+                    <div className="text-2xl font-bold" style={{ color: '#16a34a' }}>{s.value}</div>
+                    <div className="text-xs mt-1 uppercase tracking-wide" style={{ color: '#15803d' }}>{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -192,13 +183,13 @@ const HeroSection = () => {
           style={{ transitionDelay: '0.4s' }}
         >
           <div className="mb-10 text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 animate-fadeInUp" style={{ color: '#f0fdf4' }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 animate-fadeInUp" style={{ color: '#0f2817' }}>
               How Your Brand Goes{' '}
               <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Viral
               </span>
             </h2>
-            <p className="text-base sm:text-lg max-w-2xl mx-auto animate-fadeInUp stagger-2" style={{ color: '#bbf7d0' }}>
+            <p className="text-base sm:text-lg max-w-2xl mx-auto animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
               We transform your ideas into viral campaigns through our proven 4-stage process
             </p>
           </div>

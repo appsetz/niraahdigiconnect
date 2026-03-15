@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
   return (
     <section
       className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative"
-      style={{ background: 'linear-gradient(180deg, #0a2414 0%, #071a0d 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #ecfdf5 0%, #dcfce7 100%)' }}
     >
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-40 pointer-events-none"
@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="badge-green inline-block animate-scaleIn">OUR TESTIMONIALS</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ color: '#f0fdf4' }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6" style={{ color: '#0f2817' }}>
             What our{' '}
             <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               clients say

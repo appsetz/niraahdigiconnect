@@ -36,15 +36,15 @@ const Header = () => {
         className="w-full max-w-6xl transition-all duration-500"
         style={{
           background: isScrolled
-            ? 'rgba(2, 11, 5, 0.95)'
-            : 'rgba(5, 15, 8, 0.75)',
+            ? 'rgba(240, 253, 244, 0.97)'
+            : 'rgba(255, 255, 255, 0.82)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          border: '1px solid rgba(34, 197, 94, 0.2)',
-          borderRadius: '999px',   /* full pill */
+          border: '1px solid rgba(22, 163, 74, 0.2)',
+          borderRadius: '999px',
           boxShadow: isScrolled
-            ? '0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,197,94,0.15), 0 0 30px rgba(34,197,94,0.08)'
-            : '0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(34,197,94,0.1)',
+            ? '0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(22,163,74,0.15), 0 0 30px rgba(34,197,94,0.05)'
+            : '0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(22,163,74,0.1)',
           padding: '10px 20px',
         }}
       >
@@ -68,9 +68,9 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 className="text-xs lg:text-sm font-semibold tracking-wide transition-all duration-300 relative group whitespace-nowrap"
-                style={{ color: '#bbf7d0' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#4ade80')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#bbf7d0')}
+                style={{ color: '#15803d' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#16a34a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#15803d')}
               >
                 {item.name}
                 <span
@@ -112,10 +112,10 @@ const Header = () => {
         <div
           className="py-5 px-6 rounded-3xl"
           style={{
-            background: 'rgba(2, 11, 5, 0.97)',
+            background: 'rgba(240,253,244,0.98)',
             backdropFilter: 'blur(24px)',
-            border: '1px solid rgba(34,197,94,0.2)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.6)',
+            border: '1px solid rgba(22,163,74,0.2)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
           }}
         >
           <nav className="flex flex-col gap-4">
@@ -125,10 +125,10 @@ const Header = () => {
                 href={item.href}
                 className={`text-sm font-semibold hover:translate-x-2 transition-all duration-300 ${isMenuOpen ? 'animate-fadeInLeft' : ''
                   }`}
-                style={{ color: '#bbf7d0', animationDelay: `${index * 50}ms` }}
+                style={{ color: '#15803d', animationDelay: `${index * 50}ms` }}
                 onClick={() => setIsMenuOpen(false)}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#4ade80')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#bbf7d0')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#16a34a')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#15803d')}
               >
                 {item.name}
               </a>

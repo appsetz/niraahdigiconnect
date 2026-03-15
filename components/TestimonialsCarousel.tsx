@@ -57,19 +57,19 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                         className="my-3 rounded-3xl p-5 flex-shrink-0 w-[320px] flex flex-col justify-between"
                         style={{
                             height: cardHeight,
-                            background: 'rgba(255,255,255,0.05)',
+                            background: 'rgba(255,255,255,0.75)',
                             backdropFilter: 'blur(16px)',
                             WebkitBackdropFilter: 'blur(16px)',
-                            border: '1px solid rgba(34,197,94,0.2)',
+                            border: '1px solid rgba(22,163,74,0.22)',
                         }}
                     >
-                        <p className="text-sm leading-relaxed text-justify break-words whitespace-normal overflow-hidden" style={{ color: '#bbf7d0' }}>
+                        <p className="text-sm leading-relaxed text-justify break-words whitespace-normal overflow-hidden" style={{ color: '#166534' }}>
                             {highlight
                                 ? text.split(highlight).map((part, idx, arr) => (
                                     <React.Fragment key={idx}>
                                         {part}
                                         {idx !== arr.length - 1 && (
-                                            <span style={{ color: '#4ade80', fontWeight: 600 }}>
+                                            <span style={{ color: '#16a34a', fontWeight: 600 }}>
                                                 {highlight}
                                             </span>
                                         )}
@@ -80,8 +80,8 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
                         <div className="flex items-center gap-3 mt-3">
                             <div className="flex flex-col">
-                                <div className="font-semibold leading-tight" style={{ color: '#f0fdf4' }}>{name}</div>
-                                <div className="text-sm opacity-70" style={{ color: '#86efac' }}>{role}</div>
+                                <div className="font-semibold leading-tight" style={{ color: '#0f2817' }}>{name}</div>
+                                <div className="text-sm opacity-70" style={{ color: '#15803d' }}>{role}</div>
                             </div>
                         </div>
                     </motion.div>

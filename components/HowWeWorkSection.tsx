@@ -4,16 +4,16 @@ import React from 'react';
 
 const HowWeWorkSection = () => {
   const steps = [
-    { number: '01', title: 'Brand & Goal Analysis', description: 'We start by understanding your brand, target audience, and business objectives to create a tailored strategy.' },
-    { number: '02', title: 'Strategy & Planning', description: 'Develop comprehensive marketing strategies based on data insights and industry best practices.' },
-    { number: '03', title: 'Execution & Optimization', description: 'Implement campaigns with continuous monitoring and optimization for maximum performance.' },
-    { number: '04', title: 'Tracking, Insights & Scaling', description: 'Analyze results, provide detailed insights, and scale successful campaigns for sustained growth.' },
+    { number: '01', title: 'Audience & Offer Research', description: 'We deeply understand your target audience, their pain points, and the unique value your business offers. This foundation ensures all strategies are customer-focused.' },
+    { number: '02', title: 'Content & Funnel Setup', description: 'We create compelling content and design conversion-focused funnels that guide prospects toward becoming qualified leads and customers.' },
+    { number: '03', title: 'Traffic (Ads + Organic)', description: 'Deploy both paid ads (Meta, Google) and organic social media strategies to drive consistent, qualified traffic to your offers.' },
+    { number: '04', title: 'Conversion & Optimization', description: 'Continuously monitor performance, test improvements, and optimize campaigns for better results, scaling what works.' },
   ];
 
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #050f08 0%, #071a0d 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #dcfce7 0%, #f0fdf4 100%)' }}
     >
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-64 pointer-events-none"
@@ -23,7 +23,7 @@ const HowWeWorkSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <span className="badge-green">OUR PROCESS</span>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-6" style={{ color: '#f0fdf4' }}>
+          <h2 className="text-4xl lg:text-5xl font-bold mt-6" style={{ color: '#0f2817' }}>
             How we{' '}
             <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               work
@@ -42,10 +42,10 @@ const HowWeWorkSection = () => {
                     border: '1px solid rgba(34,197,94,0.3)',
                   }}
                 >
-                  <span className="text-2xl font-bold" style={{ color: '#4ade80' }}>{step.number}</span>
+                  <span className="text-2xl font-bold" style={{ color: '#16a34a' }}>{step.number}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#f0fdf4' }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#bbf7d0' }}>{step.description}</p>
+                <h3 className="text-xl font-bold mb-3" style={{ color: '#0f2817' }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#166534' }}>{step.description}</p>
               </div>
 
               {/* Connector line */}
