@@ -13,78 +13,75 @@ const WhyNiraahSection = () => {
   ];
 
   return (
-    <section
-      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #dcfce7 0%, #f0fdf4 100%)' }}
-    >
-      {/* Ambient glow */}
-      <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%)', filter: 'blur(40px)' }}
-      />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — Glass panels */}
-          <div className="order-2 lg:order-1">
-            <div className="grid grid-cols-2 gap-4">
-              <div
-                className="rounded-2xl p-4"
-                style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', backdropFilter: 'blur(12px)' }}
-              >
-                <div
-                  className="rounded-xl aspect-square flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.2), rgba(22,163,74,0.1))' }}
-                >
-                  <span className="text-5xl">👥</span>
-                </div>
-              </div>
-              <div
-                className="rounded-2xl p-4 mt-8"
-                style={{ background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(74,222,128,0.2)', backdropFilter: 'blur(12px)' }}
-              >
-                <div
-                  className="rounded-xl aspect-square flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, rgba(74,222,128,0.15), rgba(34,197,94,0.08))' }}
-                >
-                  <span className="text-5xl">💼</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right — Content */}
-          <div className="order-1 lg:order-2 space-y-6">
-            <span className="badge-green">WHY CHOOSE US</span>
-
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight" style={{ color: '#0f2817' }}>
-              We Build Digital Identities{' '}
-              <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                That Grow Businesses
+    <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+          {/* Left — Content */}
+          <div className="space-y-8">
+            <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 8vw, 4rem)', color: '#000000', whiteSpace: 'pre-wrap' }}>
+              We Build Digital
+              <br />
+              <span style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 50%, #a855f7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                Identities That Grow
               </span>
             </h2>
 
-            <p className="text-lg" style={{ color: '#166534' }}>
-              At NIRAAH DIGI CONNECT, we don't just run random campaigns. We focus on building strong digital identities that deliver measurable results and actual business growth.
+            <p style={{ color: '#666666', fontSize: '16px', lineHeight: '1.8', maxWidth: '500px' }}>
+              We don't run random campaigns. We focus on building strong digital identities that deliver measurable results and actual business growth.
             </p>
 
+            {/* Reasons list */}
             <div className="space-y-4">
               {reasons.map((reason, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                    style={{ background: 'linear-gradient(135deg, #16a34a, #22c55e)', boxShadow: '0 0 10px rgba(34,197,94,0.4)' }}
+                    className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                    style={{ background: '#10b981' }}
                   >
-                    <Check size={14} className="text-white" />
+                    <Check size={12} className="text-white" />
                   </div>
-                  <p className="text-base" style={{ color: '#166534' }}>{reason}</p>
+                  <p style={{ color: '#333333', fontSize: '14px' }}>{reason}</p>
                 </div>
               ))}
             </div>
 
-            <button className="btn-primary mt-6">
-              BOOK A CONSULTATION →
+            {/* CTA Button */}
+            <button
+              className="group inline-flex items-center gap-3 px-8 py-3 transition-all duration-300 hover:scale-105 mt-4"
+              style={{
+                border: '2px solid #000000',
+                borderRadius: '50px',
+                color: '#000000',
+                backgroundColor: '#ffffff',
+                fontSize: '14px',
+                fontWeight: '600',
+              }}
+            >
+              Book Consultation
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:translate-x-1 transition-transform">
+                <path d="M1 8h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
+          </div>
+
+          {/* Right — Visual accent */}
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="relative w-full h-96">
+              {/* Gradient accent boxes */}
+              <div
+                className="absolute top-0 right-0 w-48 h-48 rounded-3xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%)',
+                  backdropFilter: 'blur(10px)',
+                }}
+              />
+              <div
+                className="absolute bottom-0 left-0 w-40 h-40 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%)',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

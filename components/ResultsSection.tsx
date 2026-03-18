@@ -1,69 +1,43 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { TrendingUp, Target, Users } from 'lucide-react';
 
 const ResultsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) setIsVisible(true); }),
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   const cards = [
     {
       icon: TrendingUp,
-      value: '↑ 250%',
+      value: '250%',
       metric: 'Visibility Growth',
-      title: 'Increased Visibility',
       desc: 'Driven by insight-based content planning',
-      color: '#22c55e',
     },
     {
       icon: Target,
       value: '-40%',
       metric: 'Cost Per Lead',
-      title: 'Optimized Ad Spend',
       desc: 'With measurable lead generation',
-      color: '#4ade80',
     },
     {
       icon: Users,
       value: '95%',
       metric: 'Success Rate',
-      title: 'Real Implementation',
-      desc: 'Real outcomes from workshop participants',
-      color: '#86efac',
+      desc: 'Real outcomes from implementations',
     },
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative"
-      style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%)' }}
-    >
-      <div
-        className="absolute bottom-0 right-0 w-96 h-96 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%)', filter: 'blur(40px)' }}
-      />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="badge-green inline-block animate-scaleIn">RESULTS & INSIGHTS</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6 mb-4 px-4" style={{ color: '#0f2817' }}>
-            Real Results for{' '}
-            <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+    <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Section heading */}
+        <div className="text-center mb-16 sm:mb-20 space-y-3">
+          <h2 className="font-serif font-bold" style={{ fontSize: 'clamp(2rem, 8vw, 4rem)', color: '#000000', whiteSpace: 'pre-wrap' }}>
+            Real Results for
+            <br />
+            <span style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 50%, #a855f7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Real Clients
             </span>
           </h2>
-          <p className="text-base sm:text-lg max-w-2xl mx-auto px-4" style={{ color: '#166534' }}>
+          <p style={{ color: '#666666', fontSize: '16px' }}>
             We show real performance, not inflated promises.
           </p>
         </div>
@@ -75,27 +49,36 @@ const ResultsSection = () => {
             return (
               <div
                 key={i}
-                className={`service-card group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${i * 150}ms` }}
+                className="group p-8 transition-all duration-300 hover:scale-105"
+                style={{
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '20px',
+                  backgroundColor: '#ffffff',
+                }}
               >
-                <div
-                  className="mb-4 overflow-hidden rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
-                  style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: '12px', padding: '24px' }}
-                >
-                  <div className="text-center">
-                    <Icon className="mx-auto mb-3" size={32} style={{ color: card.color }} />
-                    <div className="text-4xl sm:text-5xl font-bold animate-pulse-slow" style={{ color: card.color }}>{card.value}</div>
-                    <div className="text-xs sm:text-sm mt-2" style={{ color: '#15803d' }}>{card.metric}</div>
-                  </div>
+                {/* Icon */}
+                <div className="mb-6">
+                  <Icon size={28} style={{ color: '#10b981' }} />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#0f2817' }}>{card.title}</h3>
-                <p className="text-xs sm:text-sm" style={{ color: '#166534' }}>{card.desc}</p>
+
+                {/* Metric value */}
+                <div style={{ fontSize: '40px', fontWeight: 'bold', color: '#000000', marginBottom: '8px' }}>
+                  {card.value}
+                </div>
+
+                {/* Metric label */}
+                <div style={{ color: '#10b981', fontSize: '12px', fontWeight: '600', marginBottom: '12px' }}>
+                  {card.metric}
+                </div>
+
+                {/* Description */}
+                <p style={{ color: '#666666', fontSize: '14px' }}>
+                  {card.desc}
+                </p>
               </div>
             );
           })}
         </div>
-
-
       </div>
     </section>
   );

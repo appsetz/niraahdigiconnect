@@ -127,7 +127,7 @@ const ServiceDetailsSection: React.FC<ServiceDetailsProps> = ({
               </h2>
             </div>
 
-            {testimonials.length > 0 && <TestimonialsCarousel testimonials={testimonials} speed={25} direction="left" cardHeight={220} />}
+            {testimonials.length > 0 && <TestimonialsCarousel testimonials={testimonials} />}
           </div>
         </section>
       )}

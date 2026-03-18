@@ -1,202 +1,133 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Play, ArrowRight } from 'lucide-react';
-import ViralFlowPath from './ViralFlowPath';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [activeText, setActiveText] = useState(0);
 
   useEffect(() => {
-    setIsVisible(true);
+    const handleScroll = () => {
+      const scroll = window.scrollY;
+      const vh = window.innerHeight;
+      
+      // We start at scroll=100vh (after splash), so we offset thresholds by vh
+      if (scroll < vh * 1.8) setActiveText(0);
+      else if (scroll < vh * 2.6) setActiveText(1);
+      else if (scroll < vh * 3.4) setActiveText(2);
+      else setActiveText(3);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const heroTexts = [
+    { line1: "We Generate", line2: "Qualified Leads" },
+    { line1: "Data Driven", line2: "Meta Ads" },
+    { line1: "Conversion", line2: "Focused Systems" },
+    { line1: "Proven", line2: "Growth Strategies" }
+  ];
+
   return (
-    <section
-      id="home"
-      className="relative pt-28 sm:pt-36 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #ffffff 0%, #f0fdf4 50%, #dcfce7 100%)' }}
-    >
-      {/* Background ambient orbs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute -top-40 -left-40 w-96 h-96 rounded-full animate-orb-float"
-          style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)', filter: 'blur(40px)' }}
-        />
-        <div
-          className="absolute top-1/3 right-0 w-80 h-80 rounded-full animate-orb-float"
-          style={{ background: 'radial-gradient(circle, rgba(74,222,128,0.12) 0%, transparent 70%)', filter: 'blur(50px)', animationDelay: '1.5s' }}
-        />
-        <div
-          className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full animate-orb-float"
-          style={{ background: 'radial-gradient(circle, rgba(22,163,74,0.15) 0%, transparent 70%)', filter: 'blur(40px)', animationDelay: '3s' }}
-        />
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-5"
+    <>
+      {/* 
+        This wrapper dictates how long the user scrolls through the Hero Section.
+        It prevents the StickyStackLayout from sliding up and covering the Hero until the Hero finishes animating.
+      */}
+      <div className="relative w-full" style={{ height: '400vh' }}>
+        {/* Main Hero Section */}
+        <section
+          id="home"
+          className="sticky top-0 w-full min-h-screen flex items-center justify-center overflow-visible pt-20"
           style={{
-            backgroundImage: 'linear-gradient(rgba(34,197,94,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+            background: 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #1a1a1a 100%)',
+            zIndex: 10,
           }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-          {/* Left Content */}
-          <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="animate-fadeInDown">
-              <span className="badge-green inline-block">NIRAAH DIGI CONNECT</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fadeInUp" style={{ color: '#0f2817' }}>
-              We help local businesses generate{' '}
-              <span
-                className="block sm:inline"
-                style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-              >
-                qualified leads
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg max-w-xl animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
-              Using Meta Ads and conversion-focused social media systems.
-            </p>
-
-            <p className="text-base sm:text-lg max-w-xl animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
-              We help businesses grow in two ways — <strong style={{ color: '#0f2817' }}>done-for-you marketing services</strong> and <strong style={{ color: '#0f2817' }}>practical skill-building workshops</strong>.
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fadeInUp stagger-3">
-              <button className="btn-primary w-full sm:w-auto justify-center">
-                <Play size={18} fill="white" />
-                VIEW RESULTS
-              </button>
-              <button className="btn-secondary w-full sm:w-auto justify-center">
-                BOOK A CALL
-                <ArrowRight size={18} />
-              </button>
-            </div>
-
+        >
+          {/* Gradient overlay accents */}
+          <div className="absolute inset-0 pointer-events-none opacity-40">
+            <div
+              className="absolute top-0 right-0 w-96 h-96 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%)',
+                filter: 'blur(60px)',
+              }}
+            />
+            <div
+              className="absolute bottom-20 left-1/4 w-80 h-80 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%)',
+                filter: 'blur(60px)',
+              }}
+            />
           </div>
 
-          {/* Right Content — Glass visual panel */}
-          <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            {/* Main glass hero card */}
-            <div
-              className="rounded-3xl p-8 relative overflow-hidden animate-green-glow"
-              style={{
-                background: 'rgba(255,255,255,0.75)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(22,163,74,0.25)',
-              }}
-            >
-              {/* Inner glow */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.1) 0%, transparent 60%)', borderRadius: '24px' }}
-              />
-
-              {/* Central orb */}
-              <div className="flex items-center justify-center py-8">
-                <div className="relative">
+          {/* Hero Content */}
+          <div className="relative z-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+            <div className="flex flex-col items-center justify-center gap-12 py-20">
+              {/* Main Typography - Serif, Large */}
+              <div className="relative h-64 sm:h-80 flex items-center justify-center">
+                {heroTexts.map((text, index) => (
                   <div
-                    className="w-40 h-40 sm:w-56 sm:h-56 rounded-full animate-orb-float flex items-center justify-center"
+                    key={index}
+                    className="absolute text-center transition-all duration-700"
                     style={{
-                      background: 'radial-gradient(circle, rgba(34,197,94,0.35) 0%, rgba(22,163,74,0.15) 60%, transparent 100%)',
-                      boxShadow: '0 0 60px rgba(34,197,94,0.3), 0 0 120px rgba(34,197,94,0.1)',
+                      opacity: activeText === index ? 1 : 0,
+                      transform: activeText === index ? 'translateY(0)' : 'translateY(30px)',
+                      pointerEvents: activeText === index ? 'auto' : 'none',
                     }}
                   >
-                    <div
-                      className="w-24 h-24 sm:w-36 sm:h-36 rounded-full flex items-center justify-center text-5xl sm:text-6xl"
+                    <h1 
+                      className="flex flex-col items-center justify-center font-serif font-bold leading-[1.2] tracking-tight"
                       style={{
-                        background: 'rgba(34,197,94,0.15)',
-                        border: '1px solid rgba(74,222,128,0.4)',
-                        backdropFilter: 'blur(10px)',
+                        fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+                        color: '#000000',
                       }}
                     >
-                      🌿
-                    </div>
-                  </div>
-                  {/* Orbit ring */}
-                  <div
-                    className="absolute inset-0 rounded-full border-2 border-dashed animate-pulse-slow"
-                    style={{ borderColor: 'rgba(74,222,128,0.25)', transform: 'scale(1.3)' }}
-                  />
-                </div>
-              </div>
-
-              {/* Floating stat chips */}
-              <div
-                className="absolute top-6 right-6 rounded-xl px-4 py-2 text-right animate-fadeInDown stagger-4"
-                style={{
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(22,163,74,0.3)',
-                }}
-              >
-                <div className="text-xs" style={{ color: '#15803d' }}>Revenue Growth</div>
-                <div className="text-xl font-bold" style={{ color: '#16a34a' }}>↑ 250%</div>
-              </div>
-
-              <div
-                className="absolute bottom-6 left-6 rounded-xl px-4 py-2 animate-fadeInUp stagger-5"
-                style={{
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(22,163,74,0.3)',
-                }}
-              >
-                <div className="text-xs" style={{ color: '#15803d' }}>Active Campaigns</div>
-                <div className="text-xl font-bold" style={{ color: '#16a34a' }}>80+</div>
-              </div>
-            </div>
-
-            {/* Stats bar below hero card */}
-            <div
-              className="mt-6 rounded-2xl p-5"
-              style={{
-                background: 'rgba(255,255,255,0.7)',
-                backdropFilter: 'blur(12px)',
-                border: '1px solid rgba(22,163,74,0.18)',
-              }}
-            >
-              <div className="grid grid-cols-3 gap-4 divide-x" style={{ borderColor: 'rgba(22,163,74,0.2)' }}>
-                {[
-                  { value: '12', label: 'Yrs Experience' },
-                  { value: '5.6M+', label: 'Total Users' },
-                  { value: '80+', label: 'Team' },
-                ].map((s) => (
-                  <div key={s.label} className="text-center px-2">
-                    <div className="text-2xl font-bold" style={{ color: '#16a34a' }}>{s.value}</div>
-                    <div className="text-xs mt-1 uppercase tracking-wide" style={{ color: '#15803d' }}>{s.label}</div>
+                      <span className="whitespace-nowrap">{text.line1}</span>
+                      <span 
+                        className="whitespace-nowrap mt-2"
+                        style={{
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 50%, #a855f7 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        }}
+                      >
+                        {text.line2}
+                      </span>
+                    </h1>
                   </div>
                 ))}
               </div>
+
+              {/* Subheading */}
+              <div className="text-center max-w-2xl animate-fadeInUp">
+                <p className="font-serif text-lg sm:text-xl" style={{ color: '#374151' }}>
+                  For local businesses through data-driven marketing solutions
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="animate-fadeInUp">
+                <button 
+                  className="px-8 sm:px-10 py-3 sm:py-4 font-serif text-lg transition-all hover:scale-105 flex items-center gap-3"
+                  style={{
+                    border: '2px solid #000000',
+                    borderRadius: '50px',
+                    color: '#000000',
+                    backgroundColor: 'transparent',
+                  }}>
+                  Start your project
+                  <ArrowRight size={20} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Viral Flow Path Section */}
-        <div
-          className={`mt-24 sm:mt-36 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          style={{ transitionDelay: '0.4s' }}
-        >
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 animate-fadeInUp" style={{ color: '#0f2817' }}>
-              How Your Brand Goes{' '}
-              <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                Viral
-              </span>
-            </h2>
-            <p className="text-base sm:text-lg max-w-2xl mx-auto animate-fadeInUp stagger-2" style={{ color: '#166534' }}>
-              We transform your ideas into viral campaigns through our proven 4-stage process
-            </p>
-          </div>
-          <ViralFlowPath />
-        </div>
+        </section>
       </div>
-    </section>
+    </>
   );
 };
 
