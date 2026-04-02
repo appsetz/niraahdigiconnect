@@ -1,15 +1,33 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Plus_Jakarta_Sans, Syne } from 'next/font/google'
 import './globals.css'
-import CustomCursor from '@/components/CustomCursor'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' })
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
+  display: 'swap',
+})
+
+const syne = Syne({
+  weight: ['600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Niraah Digi Connect - Performance Marketing & Strategic Growth',
-  description: 'Helping brands, personal brands, and institutes grow through Meta Ads, social media, and data-driven strategy.',
-  keywords: 'Meta Ads, Facebook Ads, Instagram Marketing, Digital Marketing, Social Media Growth, Performance Marketing',
+  title: 'Niraah Digi Connect — Where Strategy Meets Measurable Growth',
+  description: 'We build predictable systems that turn attention into revenue. Social media, Meta Ads, SEO, web development, branding, and more — growth-first digital marketing.',
+  keywords: 'digital marketing agency, social media management, meta ads, SEO, website development, branding, Niraah Digi Connect',
+  authors: [{ name: 'Niraah Digi Connect' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://niraahdigiconnect.com',
+    siteName: 'Niraah Digi Connect',
+    title: 'Niraah Digi Connect — Growth-First Digital Marketing',
+    description: 'We don\'t sell random digital services. We build predictable systems that turn attention into revenue.',
+  },
 }
 
 export default function RootLayout({
@@ -18,12 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable}`}>
-        <CustomCursor />
-        {children}
-      </body>
+    <html lang="en" className={`${plusJakarta.variable} ${syne.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }
-
