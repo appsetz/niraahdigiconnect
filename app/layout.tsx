@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google'
 import './globals.css'
+import SplashCursor from './components/ui/splash-cursor'
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -37,7 +38,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${plusJakarta.variable} ${instrumentSerif.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SplashCursor />
+        {children}
+      </body>
     </html>
   )
 }
