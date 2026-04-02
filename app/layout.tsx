@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Syne } from 'next/font/google'
+import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google'
 import './globals.css'
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -8,10 +8,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
-const syne = Syne({
-  weight: ['600', '700', '800'],
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
   subsets: ['latin'],
-  variable: '--font-syne',
+  variable: '--font-instrument-serif',
   display: 'swap',
 })
 
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${syne.variable}`}>
+    <html lang="en" className={`${plusJakarta.variable} ${instrumentSerif.variable}`}>
       <body>{children}</body>
     </html>
   )

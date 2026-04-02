@@ -85,29 +85,29 @@ export default function Testimonials() {
               {[...featuredTestimonials, ...featuredTestimonials].map((t, i) => (
                 <div
                   key={i}
-                  className="glass-card flex flex-col justify-between p-8 md:p-10 w-[85vw] md:w-[450px] min-h-[380px] shrink-0"
+                  className="glass-card flex flex-col justify-between p-6 md:p-10 w-[85vw] md:w-[450px] min-h-[300px] md:min-h-[380px] shrink-0"
                   style={{
                     background: 'rgba(11,11,11,0.6)',
-                    borderRadius: '32px',
+                    borderRadius: '24px',
                     border: '1px solid rgba(255,255,255,0.05)',
                   }}
                 >
                   <div>
                     {/* Stars */}
-                    <div className="flex gap-1 mb-6">
+                    <div className="flex gap-1 mb-4 md:mb-6">
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <span key={star} className="text-[#10B981] text-lg">★</span>
+                        <span key={star} className="text-[#10B981] text-base md:text-lg">★</span>
                       ))}
                     </div>
 
                     {/* Quote */}
-                    <p className="font-sans text-lg md:text-xl text-[rgba(255,255,255,0.85)] leading-relaxed font-light mb-8">
+                    <p className="font-sans text-base md:text-xl text-[rgba(255,255,255,0.85)] leading-relaxed font-light mb-6 md:mb-8">
                       &rdquo;{t.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-[rgba(255,255,255,0.05)]">
+                  <div className="flex items-center gap-3 md:gap-4 pt-4 md:pt-6 border-t border-[rgba(255,255,255,0.05)]">
                     <div 
                       className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-[#111111] border border-[rgba(255,255,255,0.1)] text-sm"
                     >

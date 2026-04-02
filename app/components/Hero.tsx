@@ -65,7 +65,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center pt-24 pb-32 md:pt-32 md:pb-48 overflow-hidden bg-[#000000]"
+      className="relative flex min-h-[85vh] md:min-h-screen items-center justify-center pt-24 pb-20 md:pt-32 md:pb-48 overflow-hidden bg-[#000000]"
     >
       {/* Background Video with Scroll Trigger */}
       <motion.div 
@@ -205,8 +205,8 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="mb-8 font-display font-bold leading-[0.9] text-white"
-          style={{ fontSize: 'clamp(48px, 9vw, 120px)', textTransform: 'uppercase' }}
+          className="mb-6 md:mb-8 font-display font-bold leading-[0.9] text-white px-2"
+          style={{ fontSize: 'clamp(40px, 9vw, 120px)', textTransform: 'uppercase' }}
         >
           Your Brand
           <br />
@@ -218,7 +218,7 @@ export default function Hero() {
         {/* Sub-headline */}
         <motion.p 
           variants={itemVariants}
-          className="mb-12 max-w-3xl text-balance text-lg md:text-xl font-light text-[rgba(255,255,255,0.5)] font-sans mx-auto leading-relaxed"
+          className="mb-8 md:mb-12 max-w-3xl text-balance text-base md:text-xl font-light text-[rgba(255,255,255,0.5)] font-sans mx-auto leading-relaxed px-4"
         >
           We don&apos;t sell random digital services. We build predictable systems
           that turn attention into revenue and scale your business effortlessly.
@@ -227,12 +227,12 @@ export default function Hero() {
         {/* CTAs */}
         <motion.div 
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pb-20 w-full px-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pb-16 md:pb-20 w-full px-6"
         >
-          <a href="#services" className="white-btn w-full sm:w-auto flex items-center justify-center" style={{ padding: '16px 32px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <a href="#services" className="white-btn w-full sm:w-auto flex items-center justify-center text-sm md:text-base py-3 px-6 md:py-4 md:px-8" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Explore Work <span className="ml-2">→</span>
           </a>
-          <a href="#contact" className="outline-btn w-full sm:w-auto flex items-center justify-center" style={{ padding: '16px 32px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <a href="#contact" className="outline-btn w-full sm:w-auto flex items-center justify-center text-sm md:text-base py-3 px-6 md:py-4 md:px-8" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Get In Touch
           </a>
         </motion.div>

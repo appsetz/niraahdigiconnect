@@ -17,25 +17,11 @@ export default function Header() {
 
   return (
     <header
+      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-32px)] md:max-w-[1000px] px-4 md:px-4 py-0 h-16 md:h-[72px] flex items-center justify-between rounded-full border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
       style={{
-        position: 'fixed',
-        top: '24px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 100,
-        width: 'calc(100% - 32px)',
-        maxWidth: '1000px',
-        padding: '0 8px 0 16px',
-        height: '72px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderRadius: '9999px',
         background: 'rgba(17, 17, 17, 0.85)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
       }}
     >
       {/* Logo */}
@@ -48,7 +34,7 @@ export default function Header() {
         }}
         className="group hover:opacity-80 transition-opacity"
       >
-        <Image src="/images/logo.png" alt="Niraah Logo" width={120} height={40} className="object-contain" />
+        <Image src="/images/logo.png" alt="Niraah Logo" width={100} height={32} className="object-contain md:w-[120px] md:h-[40px]" />
       </a>
 
       {/* Desktop Nav */}
@@ -90,7 +76,7 @@ export default function Header() {
 
       {/* Mobile Menu Toggle */}
       <button
-        className="lg:hidden flex items-center justify-center w-12 h-12 text-white rounded-full bg-white/5 border border-white/10"
+        className="lg:hidden flex items-center justify-center w-10 h-10 md:w-12 md:h-12 text-white rounded-full bg-white/5 border border-white/10"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
@@ -100,24 +86,10 @@ export default function Header() {
       {/* Mobile Nav */}
       {menuOpen && (
         <div
-          className="lg:hidden"
+          className="lg:hidden fixed top-[72px] md:top-[84px] left-1/2 -translate-x-1/2 w-[calc(100vw-32px)] flex flex-col items-center justify-center p-8 gap-6 z-[99] rounded-[24px] border border-white/10"
           style={{
-            position: 'fixed',
-            top: '84px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 'calc(100vw - 32px)',
             background: 'rgba(17,17,17,0.95)',
             backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '24px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '40px 24px',
-            gap: '24px',
-            zIndex: 99,
           }}
         >
           {navLinks.map((link) => (
@@ -125,12 +97,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              style={{
-                fontSize: '20px',
-                fontWeight: 600,
-                color: 'rgba(255,255,255,0.9)',
-                fontFamily: 'var(--font-plus-jakarta), sans-serif',
-              }}
+              className="text-lg md:text-xl font-semibold text-white/90 font-sans"
             >
               {link.label}
             </a>
@@ -138,15 +105,7 @@ export default function Header() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            style={{
-              marginTop: '16px',
-              background: '#10B981',
-              color: '#fff',
-              padding: '16px 40px',
-              borderRadius: '9999px',
-              fontWeight: 700,
-              fontSize: '18px',
-            }}
+            className="mt-4 bg-[#10B981] text-white px-8 py-3 rounded-full font-bold text-base md:text-lg"
           >
             Let&apos;s Talk ✦
           </a>
