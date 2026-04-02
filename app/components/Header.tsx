@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { label: 'Work', href: '#portfolio-showcase' },
@@ -15,102 +17,197 @@ export default function Header() {
     { label: 'FAQ', href: '#faq' },
   ];
 
+  // Handle scroll for sticky header elevation/blur
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [menuOpen]);
+
+  // Framer Motion variants config
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } },
+  };
+
+  const menuVariants = {
+    hidden: { x: '100%', opacity: 0 },
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      transition: {
+        type: 'tween' as const,
+        duration: 0.4,
+        ease: [0.25, 1, 0.5, 1] as any,
+      }
+    },
+    exit: { 
+      x: '100%', 
+      opacity: 0,
+      transition: {
+        type: 'tween' as const,
+        duration: 0.3,
+        ease: [0.25, 1, 0.5, 1] as any,
+      }
+    }
+  };
+
+  const linkContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2, // slight delay so menu frames in first
+      }
+    }
+  };
+
+  const linkVariants = {
+    hidden: { x: 20, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.4, ease: 'easeOut' as const } }
+  };
+
   return (
-    <header
-      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-32px)] md:max-w-[1000px] px-4 md:px-4 py-0 h-16 md:h-[72px] flex items-center justify-between rounded-full border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
-      style={{
-        background: 'rgba(17, 17, 17, 0.85)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-      }}
-    >
-      {/* Logo */}
-      <a
-        href="#"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}
-        className="group hover:opacity-80 transition-opacity"
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out border-b border-transparent ${
+          isScrolled 
+            ? 'bg-[rgba(5,5,5,0.85)] backdrop-blur-xl shadow-lg border-white/5 py-4 lg:py-5' 
+            : 'bg-transparent py-6 lg:py-8'
+        }`}
       >
-        <Image src="/images/logo.png" alt="Niraah Logo" width={100} height={32} className="object-contain md:w-[120px] md:h-[40px]" />
-      </a>
-
-      {/* Desktop Nav */}
-      <nav
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '24px',
-        }}
-        className="hidden lg:flex"
-      >
-        {navLinks.map((link) => (
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+          {/* Left: Logo */}
           <a
-            key={link.label}
-            href={link.href}
-            className="font-sans font-medium text-sm transition-colors duration-300"
-            style={{ color: 'rgba(255,255,255,0.7)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      {/* Let's Talk Button */}
-      <a
-        href="#contact"
-        className="hidden lg:flex items-center justify-center font-sans font-medium text-sm text-white transition-colors py-2 px-6 rounded-full"
-        style={{
-          background: 'rgba(255, 255, 255, 0.05)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
-        onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)')}
-      >
-        Let&apos;s Talk ✦
-      </a>
-
-      {/* Mobile Menu Toggle */}
-      <button
-        className="lg:hidden flex items-center justify-center w-10 h-10 md:w-12 md:h-12 text-white rounded-full bg-white/5 border border-white/10"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-      >
-        {menuOpen ? '✕' : '☰'}
-      </button>
-
-      {/* Mobile Nav */}
-      {menuOpen && (
-        <div
-          className="lg:hidden fixed top-[72px] md:top-[84px] left-1/2 -translate-x-1/2 w-[calc(100vw-32px)] flex flex-col items-center justify-center p-8 gap-6 z-[99] rounded-[24px] border border-white/10"
-          style={{
-            background: 'rgba(17,17,17,0.95)',
-            backdropFilter: 'blur(20px)',
-          }}
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-lg md:text-xl font-semibold text-white/90 font-sans"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
+            href="#"
+            className="group hover:opacity-80 transition-opacity relative z-[110]"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 bg-[#10B981] text-white px-8 py-3 rounded-full font-bold text-base md:text-lg"
           >
-            Let&apos;s Talk ✦
+            <Image src="/images/logo.png" alt="Niraah Logo" width={140} height={40} className="object-contain w-[120px] md:w-[140px] h-auto" />
           </a>
+
+          {/* Center: Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="font-sans font-medium text-sm text-white/70 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right: CTA & Mobile Toggle */}
+          <div className="flex items-center gap-4 relative z-[110]">
+            {/* Desktop Primary CTA */}
+            <a
+              href="#contact"
+              className="hidden lg:flex items-center justify-center font-sans font-semibold text-[13px] text-black bg-[#10B981] hover:bg-white transition-all duration-300 py-3 px-7 rounded-full shadow-[0_4px_14px_rgba(16,185,129,0.25)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.4)]"
+            >
+              Get Started <span className="ml-[6px] text-base leading-none">→</span>
+            </a>
+
+            {/* Mobile Hamburger Toggle */}
+            <button
+              className="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full border border-white/10 text-white z-[110] relative overflow-hidden bg-white/5 backdrop-blur-md active:scale-95 transition-transform"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              <motion.span
+                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="w-5 h-[2px] bg-white block transition-all"
+              />
+              <motion.span
+                animate={menuOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="w-5 h-[2px] bg-white block my-1 transition-all"
+              />
+              <motion.span
+                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="w-5 h-[2px] bg-white block transition-all"
+              />
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Mobile Overlay & Slide-in Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Screen Dark Overlay */}
+            <motion.div
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              onClick={() => setMenuOpen(false)}
+              className="fixed inset-0 bg-[#000000]/70 backdrop-blur-sm z-[90] lg:hidden"
+            />
+
+            {/* Right Slide-in Menu Panel */}
+            <motion.div
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="fixed top-0 right-0 bottom-0 w-[min(360px,85vw)] bg-[#0A0A0A] border-l border-white/5 z-[100] p-8 pt-32 flex flex-col shadow-2xl lg:hidden"
+            >
+              <motion.nav 
+                variants={linkContainerVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col gap-6"
+              >
+                {navLinks.map((link) => (
+                  <motion.a
+                    key={link.href}
+                    variants={linkVariants}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-[26px] font-display font-medium text-white/80 hover:text-[#10B981] hover:pl-2 transition-all duration-300 border-b border-white/10 pb-4"
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </motion.nav>
+
+              <motion.div 
+                variants={linkVariants}
+                className="mt-auto pt-8 border-t border-white/10"
+              >
+                <a
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-center w-full bg-[#10B981] hover:bg-white text-black hover:text-black py-4 rounded-xl font-bold text-lg shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] transition-all duration-300 transform active:scale-95"
+                >
+                  Get Started <span className="ml-[8px] text-xl leading-none font-medium">→</span>
+                </a>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
