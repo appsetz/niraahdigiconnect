@@ -84,14 +84,14 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out border-b border-transparent ${
-          isScrolled 
-            ? 'bg-[rgba(5,5,5,0.85)] backdrop-blur-xl shadow-lg border-white/5 py-4 lg:py-5' 
-            : 'bg-transparent py-6 lg:py-8'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-[100] pointer-events-none flex justify-center">
+        <div
+          className={`pointer-events-auto relative flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            isScrolled
+              ? 'mt-4 md:mt-6 w-[calc(100%-32px)] max-w-[1000px] h-16 md:h-[72px] px-5 md:px-8 rounded-full bg-[rgba(17,17,17,0.85)] backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]'
+              : 'mt-0 w-full max-w-7xl h-20 md:h-28 px-6 md:px-8 rounded-none border-transparent bg-transparent'
+          }`}
+        >
           {/* Left: Logo */}
           <a
             href="#"
@@ -171,13 +171,13 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed top-0 right-0 bottom-0 w-[min(360px,85vw)] bg-[#0A0A0A] border-l border-white/5 z-[100] p-8 pt-32 flex flex-col shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-[min(280px,75vw)] bg-[#0A0A0A] border-l border-white/5 z-[100] p-6 pt-24 flex flex-col shadow-2xl lg:hidden"
             >
               <motion.nav 
                 variants={linkContainerVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-col gap-6"
+                className="flex flex-col gap-4"
               >
                 {navLinks.map((link) => (
                   <motion.a
@@ -185,7 +185,7 @@ export default function Header() {
                     variants={linkVariants}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-[26px] font-display font-medium text-white/80 hover:text-[#10B981] hover:pl-2 transition-all duration-300 border-b border-white/10 pb-4"
+                    className="text-[20px] font-display font-medium text-white/80 hover:text-[#10B981] hover:pl-2 transition-all duration-300 border-b border-white/10 pb-3"
                   >
                     {link.label}
                   </motion.a>
@@ -194,14 +194,14 @@ export default function Header() {
 
               <motion.div 
                 variants={linkVariants}
-                className="mt-auto pt-8 border-t border-white/10"
+                className="mt-auto pt-6 border-t border-white/10"
               >
                 <a
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center w-full bg-[#10B981] hover:bg-white text-black hover:text-black py-4 rounded-xl font-bold text-lg shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] transition-all duration-300 transform active:scale-95"
+                  className="flex items-center justify-center w-full bg-[#10B981] hover:bg-white text-black hover:text-black py-3 rounded-xl font-bold text-base shadow-[0_4px_15px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] transition-all duration-300 transform active:scale-95"
                 >
-                  Get Started <span className="ml-[8px] text-xl leading-none font-medium">→</span>
+                  Get Started <span className="ml-[6px] text-lg leading-none font-medium">→</span>
                 </a>
               </motion.div>
             </motion.div>
