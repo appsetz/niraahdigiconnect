@@ -44,14 +44,14 @@ export default function PortfolioShowcase() {
     <section
       id="portfolio-showcase"
       className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ background: '#000000' }}
+      style={{ background: 'var(--bg-main)' }}
     >
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 z-0 opacity-5">
         <div 
           className="w-full h-full"
           style={{
-            backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px)`,
             backgroundSize: '30px 30px'
           }}
         />
@@ -80,8 +80,8 @@ export default function PortfolioShowcase() {
             <span className="uppercase tracking-[0.3em] text-xs font-bold text-[#10B981]">
               What We Do
             </span>
-            <h2 className="font-display font-bold text-3xl text-white mt-4 uppercase leading-tight">
-              Full-Stack <span className="text-white/30">Digital Services</span>
+            <h2 className="font-display font-bold text-3xl mt-4 uppercase leading-tight" style={{ color: 'var(--text-1)' }}>
+              Full-Stack <span style={{ color: 'var(--text-4)' }}>Digital Services</span>
             </h2>
           </motion.div>
           
@@ -111,7 +111,7 @@ export default function PortfolioShowcase() {
                 <div className="font-display font-bold text-2xl text-[#10B981]">
                   {stat.number}
                 </div>
-                <div className="font-sans text-xs text-white/40 mt-1 uppercase tracking-wider">
+                <div className="font-sans text-xs mt-1 uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -134,12 +134,12 @@ export default function PortfolioShowcase() {
               What We Do
             </span>
             
-            <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-6 leading-tight font-display uppercase">
+            <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-6 leading-tight font-display uppercase" style={{ color: 'var(--text-1)' }}>
               Full-Stack{' '}
-              <span className="text-white/30">Digital Services</span>
+              <span style={{ color: 'var(--text-4)' }}>Digital Services</span>
             </h2>
-            
-            <p className="text-lg xl:text-xl text-gray-400 mb-8 leading-relaxed">
+
+            <p className="text-lg xl:text-xl mb-8 leading-relaxed" style={{ color: 'var(--text-2)' }}>
               From social media to SEO, ads to analytics, design to development — 
               we offer everything your brand needs to dominate the digital space.
             </p>
@@ -155,13 +155,13 @@ export default function PortfolioShowcase() {
                   className="flex items-center gap-3"
                 >
                   <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
-                  <span className="text-gray-300">{highlight}</span>
+                  <span style={{ color: 'var(--text-2)' }}>{highlight}</span>
                 </motion.div>
               ))}
             </div>
 
             {/* Stats */}
-            <div className="flex gap-8 pt-8 border-t border-white/10">
+            <div className="flex gap-8 pt-8" style={{ borderTop: '1px solid var(--border-1)' }}>
               {summaryStats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -173,7 +173,7 @@ export default function PortfolioShowcase() {
                   <div className="font-display font-bold text-3xl md:text-4xl text-[#10B981]">
                     {stat.number}
                   </div>
-                  <div className="font-sans text-sm text-white/40 mt-1 uppercase tracking-wider">
+                  <div className="font-sans text-sm mt-1 uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
                     {stat.label}
                   </div>
                 </motion.div>
@@ -185,7 +185,8 @@ export default function PortfolioShowcase() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 text-sm text-gray-500 italic"
+              className="mt-8 text-sm italic"
+              style={{ color: 'var(--text-3)' }}
             >
               🚀 One agency. Zero gaps.
             </motion.p>
@@ -212,7 +213,7 @@ export default function PortfolioShowcase() {
       <div 
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, #000000, transparent)',
+          background: 'linear-gradient(to top, var(--bg-main), transparent)',
         }}
       />
     </section>

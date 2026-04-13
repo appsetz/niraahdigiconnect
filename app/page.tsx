@@ -7,6 +7,7 @@ import PortfolioShowcase from './components/PortfolioShowcase';
 import Services from './components/Services';
 import SelectedWork from './components/SelectedWork';
 import OurApproach from './components/OurApproach';
+import WhyChooseUs from './components/WhyChooseUs';
 import Workshops from './components/Workshops';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -85,7 +86,7 @@ export default function MarketingLandingPage() {
   return (
     <main
       className="relative overflow-hidden"
-      style={{ minHeight: '100vh', background: 'var(--bg-dark)', color: 'var(--text-primary)' }}
+      style={{ minHeight: '100vh', background: 'var(--bg-main)', color: 'var(--text-1)' }}
     >
       {/* Scroll Progress Bar */}
       <div
@@ -96,7 +97,7 @@ export default function MarketingLandingPage() {
           left: 0,
           height: '4px',
           zIndex: 200,
-          background: 'linear-gradient(90deg, #10B981, #34D399)',
+          background: 'linear-gradient(90deg, #059669, #10B981)',
           width: '0%',
           willChange: 'width',
           borderRadius: '0 2px 2px 0',
@@ -110,6 +111,7 @@ export default function MarketingLandingPage() {
       <Services />
       <SelectedWork />
       <OurApproach />
+      <WhyChooseUs />
 
       <Workshops />
       <Testimonials />

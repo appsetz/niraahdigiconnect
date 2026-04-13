@@ -1,319 +1,180 @@
 'use client';
 
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
-const features = [
+const reasons = [
   {
-    category: 'CORE PILLAR',
-    number: '01',
-    title: 'STRATEGY FIRST',
-    desc: 'Every strategy we create has a clear goal. Whether it\'s brand awareness, quality leads, or sales — we track performance and make decisions based on data, not assumptions.',
-    color: '#10B981',
     icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
       </svg>
     ),
+    title: 'Strategy-Driven, Always',
+    desc: "We don't run random campaigns. Every strategy we create has a clear goal — brand awareness, quality leads, or sales. We track performance and make decisions based on data, not assumptions.",
   },
   {
-    category: 'METHODOLOGY',
-    number: '02',
-    title: 'CUSTOM SOLUTIONS',
-    desc: 'Every business is different. Different audience. Different budget. Different challenges. So our strategies are customized specifically for your business, not copy-pasted.',
-    color: '#10B981',
     icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     ),
+    title: 'Customized for Your Business',
+    desc: "We don't believe in copy-paste marketing. Every business has a different audience, budget, and challenges. Our strategies are built specifically for you — not recycled templates.",
   },
   {
-    category: 'CAPABILITY',
-    number: '03',
-    title: 'ALL UNDER ONE ROOF',
-    desc: 'Social media, Meta Ads, Google Ads, website development, SEO, GMB optimization, photography, and videography. You don\'t have to manage multiple agencies.',
-    color: '#10B981',
     icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
       </svg>
     ),
+    title: 'Everything Under One Roof',
+    desc: "Social media, Meta Ads, Google Ads, website development, SEO, GMB optimization, photography, and videography — you don't have to manage multiple agencies. We take complete responsibility.",
   },
   {
-    category: 'EXECUTION',
-    number: '04',
-    title: 'CREATIVE CONVERSION',
-    desc: 'In a crowded digital space boring content gets ignored. We create strong visuals, engaging reels, and ad creatives that not only look good but also convert.',
-    color: '#10B981',
     icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
+    title: 'Creativity That Converts',
+    desc: "In a crowded digital space, boring content gets ignored. We create strong visuals, engaging reels, and ad creatives that not only look good — but actually drive conversions.",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
+      </svg>
+    ),
+    title: 'Full Transparency',
+    desc: "You receive clear reports with real insights. You'll always know what's working and how your investment is performing. No smoke and mirrors — just honest, measurable results.",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    title: 'Relationships That Last',
+    desc: "We stay connected, responsive, and committed to your success. Most of our clients grow with us long-term because we genuinely care about their business outcomes.",
   },
 ];
 
-// Individual card component with 3D tilt effect
-function StackCard({ 
-  feature, 
-  index, 
-  progress,
-  totalCards,
-}: { 
-  feature: typeof features[0];
-  index: number;
-  progress: any;
-  totalCards: number;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  
-  // Mouse tracking for 3D tilt
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  // Smooth spring animation for tilt
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), { stiffness: 300, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), { stiffness: 300, damping: 30 });
-  
-  // Calculate card-specific transforms based on scroll progress
-  // Ensure all values stay within [0, 1] range
-  const segmentSize = 1 / (totalCards + 1);
-  const cardStart = Math.min(index * segmentSize, 0.99);
-  const cardPeak = Math.min(cardStart + segmentSize, 1);
-  const cardEnd = Math.min(cardPeak + segmentSize * 0.5, 1);
-  
-  const y = useTransform(progress, [cardStart, cardPeak], [300, 0]);
-  const scale = useTransform(progress, [cardStart, cardPeak, cardEnd], [0.85, 1, 0.92]);
-  const opacity = useTransform(progress, [cardStart, Math.min(cardStart + 0.05, 1), cardPeak, cardEnd], [0, 1, 1, 0.6]);
-  
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current || !isHovered) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    mouseX.set((e.clientX - centerX) / rect.width);
-    mouseY.set((e.clientY - centerY) / rect.height);
-  };
-  
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="absolute w-full max-w-4xl"
-      style={{
-        y,
-        scale,
-        opacity,
-        zIndex: totalCards - index,
-        top: `${index * 40}px`,
-        left: '50%',
-        transform: 'translateX(-50%)',
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-    >
-      <motion.div
-        className="relative overflow-hidden rounded-[24px] p-8 md:p-12"
-        style={{
-          rotateX: isHovered ? rotateX : 0,
-          rotateY: isHovered ? rotateY : 0,
-          transformPerspective: 1000,
-          background: '#000000',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: `
-            0 25px 50px -12px rgba(0, 0, 0, 0.8),
-            0 0 0 1px rgba(16, 185, 129, 0.1),
-            inset 0 1px 0 0 rgba(255, 255, 255, 0.05)
-          `,
-        }}
-      >
-        {/* Gradient glow border effect */}
-        <div 
-          className="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: `linear-gradient(135deg, ${feature.color}20, transparent 50%, ${feature.color}10)`,
-          }}
-        />
-        
-        {/* Animated gradient orb */}
-        <motion.div
-          className="absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
-          style={{
-            background: `radial-gradient(circle, ${feature.color}15 0%, transparent 70%)`,
-          }}
-          animate={{
-            scale: isHovered ? 1.2 : 1,
-            opacity: isHovered ? 0.8 : 0.4,
-          }}
-          transition={{ duration: 0.5 }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10">
-          {/* Top Row */}
-          <div className="flex justify-between items-start mb-8">
-            <div className="flex items-center gap-4">
-              <div 
-                className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300"
-                style={{ 
-                  background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}05)`,
-                  border: `1px solid ${feature.color}30`,
-                  color: feature.color,
-                }}
-              >
-                {feature.icon}
-              </div>
-              <div>
-                <span className="font-sans font-bold tracking-[0.2em] text-xs text-[rgba(255,255,255,0.5)] block mb-1">
-                  {feature.category}
-                </span>
-                <span 
-                  className="font-display font-bold text-2xl"
-                  style={{ color: feature.color }}
-                >
-                  {feature.number}
-                </span>
-              </div>
-            </div>
-            
-            <motion.a
-              href="#contact"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full font-sans font-bold text-xs tracking-wider uppercase transition-all"
-              style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                color: 'rgba(255, 255, 255, 0.7)',
-              }}
-              whileHover={{
-                background: feature.color,
-                color: '#000',
-                scale: 1.05,
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
-              DISCUSS
-              <span className="text-sm">↗</span>
-            </motion.a>
-          </div>
-
-          {/* Main Content */}
-          <h3 
-            className="font-display font-bold leading-[0.95] text-white tracking-tight mb-6"
-            style={{ fontSize: 'clamp(36px, 6vw, 72px)' }}
-          >
-            {feature.title}
-          </h3>
-          <p className="font-sans text-lg md:text-xl leading-relaxed text-[rgba(255,255,255,0.5)] max-w-2xl">
-            {feature.desc}
-          </p>
-        </div>
-
-        {/* Bottom decorative line */}
-        <motion.div
-          className="absolute bottom-0 left-0 h-[2px] rounded-full"
-          style={{ background: `linear-gradient(90deg, ${feature.color}, transparent)` }}
-          initial={{ width: '0%' }}
-          animate={{ width: isHovered ? '60%' : '30%' }}
-          transition={{ duration: 0.5 }}
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export default function WhyChooseUs() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   return (
     <section
-      id="why-us"
-      ref={containerRef}
-      className="relative"
-      style={{ 
-        background: 'linear-gradient(180deg, #000000 0%, #050505 50%, #0a0a0a 100%)',
-      }}
+      id="why-choose-us"
+      className="relative overflow-hidden"
+      style={{ padding: '120px 24px 140px', background: 'var(--bg-main)' }}
     >
-      {/* Background noise texture */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+      {/* Background Text */}
+      <motion.div
+        className="section-bg-text"
+        initial={{ opacity: 0, scale: 0.8, y: '-50%', x: '-50%' }}
+        whileInView={{ opacity: 0.02, scale: 1, y: '-50%', x: '-50%' }}
+        viewport={{ once: true, margin: '-20%' }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        style={{ fontSize: 'clamp(50px, 10vw, 160px)' }}
+      >
+        WHY US
+      </motion.div>
+
+      {/* Subtle green glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          background: 'radial-gradient(ellipse at center top, rgba(16,185,129,0.07) 0%, transparent 70%)',
+          filter: 'blur(40px)',
         }}
       />
 
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-        />
-        <div 
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(52, 211, 153, 0.03) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-        />
-      </div>
-
-      {/* Header */}
-      <div className="relative z-10 pt-32 pb-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-16 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="uppercase tracking-[0.3em] text-xs font-bold text-[#10B981] block mb-4">
-              Why Choose Us
-            </span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white uppercase">
-              Our <span className="text-white/30">Approach</span>
+            <span className="section-label text-[#10B981]">Why Choose Us</span>
+            <h2
+              className="font-display font-bold mt-4 uppercase leading-tight"
+              style={{ fontSize: 'clamp(32px, 5.5vw, 72px)', color: 'var(--text-1)' }}
+            >
+              We Don&apos;t Just <span style={{ color: 'var(--text-4)' }}>Market Brands.</span>
+              <br />
+              We Build Them.
             </h2>
+            <p className="font-sans text-base md:text-lg mt-5 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-2)' }}>
+              Today digital marketing is not just about posting content or running ads. Anyone can boost a post. But that does not build a brand.
+            </p>
           </motion.div>
         </div>
-      </div>
 
-      {/* Stacking Cards Container */}
-      <div 
-        className="relative px-6"
-        style={{ height: `${features.length * 100 + 50}vh` }}
-      >
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-          <div className="relative w-full max-w-4xl mx-auto h-[600px]">
-            {features.map((feature, i) => (
-              <StackCard
-                key={i}
-                feature={feature}
-                index={i}
-                progress={scrollYProgress}
-                totalCards={features.length}
-              />
-            ))}
-          </div>
+        {/* Reasons Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-16">
+          {reasons.map((r, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-8%' }}
+              transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group p-7 transition-all duration-400"
+              style={{
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-1)',
+                borderRadius: '24px',
+              }}
+            >
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center text-[#10B981] mb-5 transition-all duration-300 group-hover:bg-[#10B981] group-hover:text-black"
+                style={{
+                  background: 'rgba(16,185,129,0.08)',
+                  border: '1px solid rgba(16,185,129,0.2)',
+                }}
+              >
+                {r.icon}
+              </div>
+              <h3 className="font-sans font-bold text-[17px] mb-3 leading-snug" style={{ color: 'var(--text-1)' }}>
+                {r.title}
+              </h3>
+              <p className="font-sans text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
+                {r.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </div>
 
-      {/* Bottom spacer */}
-      <div className="h-32" />
+        {/* Bottom Statement Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-center max-w-3xl mx-auto"
+          style={{
+            background: 'rgba(16,185,129,0.04)',
+            border: '1px solid rgba(16,185,129,0.15)',
+            borderRadius: '28px',
+            padding: '48px 32px',
+          }}
+        >
+          <p className="font-display font-bold text-xl md:text-2xl lg:text-3xl mb-4 leading-snug" style={{ color: 'var(--text-1)' }}>
+            If you want real growth, structured strategy, and measurable results —
+            <span className="text-gradient"> we&apos;re the right partner.</span>
+          </p>
+          <p className="font-sans text-sm mb-8" style={{ color: 'var(--text-2)' }}>
+            If you&apos;re looking for quick shortcuts, random boosting, or temporary hype — we&apos;re not for that.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 font-sans font-bold text-sm text-black bg-[#10B981] hover:bg-white transition-all duration-300 py-3.5 px-9 rounded-full shadow-[0_4px_24px_rgba(16,185,129,0.3)]"
+          >
+            Let&apos;s Build Together <span className="text-base">→</span>
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 }

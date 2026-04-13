@@ -21,7 +21,7 @@ export default function ParticleShowcase() {
   return (
     <section
       className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center py-20 lg:py-0"
-      style={{ background: '#000000' }}
+      style={{ background: 'var(--bg-main)' }}
     >
       {/* Subtle gradient overlay */}
       <div 
@@ -43,8 +43,8 @@ export default function ParticleShowcase() {
           <span className="uppercase tracking-[0.3em] text-xs font-bold text-[#10B981]">
             What Drives Us
           </span>
-          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mt-4 uppercase">
-            Our <span className="text-white/30">Core Values</span>
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-4 uppercase" style={{ color: 'var(--text-1)' }}>
+            Our <span style={{ color: 'var(--text-4)' }}>Core Values</span>
           </h2>
         </motion.div>
 
@@ -68,7 +68,8 @@ export default function ParticleShowcase() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center text-gray-500 text-sm mt-6"
+          className="text-center text-sm mt-6"
+          style={{ color: 'var(--text-3)' }}
         >
           Words that define our mission • Auto-cycling every 3 seconds
         </motion.p>

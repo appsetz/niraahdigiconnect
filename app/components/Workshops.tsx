@@ -69,7 +69,7 @@ export default function Workshops() {
     <section
       id="workshops"
       className="relative flex flex-col items-center justify-center overflow-hidden"
-      style={{ padding: '160px 24px', background: '#000000' }}
+      style={{ padding: '160px 24px', background: 'var(--bg-main)' }}
     >
       {/* Background Text with Scroll Reveal */}
       <motion.div 
@@ -93,11 +93,11 @@ export default function Workshops() {
             transition={{ duration: 0.6 }}
           >
             <span className="section-label">Learn & Grow</span>
-            <h2 className="font-display font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(40px, 6vw, 72px)' }}>
+            <h2 className="font-display font-bold mb-6 leading-tight" style={{ fontSize: 'clamp(40px, 6vw, 72px)', color: 'var(--text-1)' }}>
               Workshops & Practical<br />
               <span className="text-gradient">Training Programs</span>
             </h2>
-            <p className="font-sans text-[rgba(255,255,255,0.5)] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="font-sans text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-2)' }}>
               Result-oriented workshops designed for business owners, freelancers, students, and working professionals
               who want to generate real results — not just learn theory.
             </p>
@@ -119,18 +119,18 @@ export default function Workshops() {
                 style={{
                   padding: '40px',
                   borderRadius: '32px',
-                  background: isOpen ? 'rgba(16, 185, 129, 0.05)' : 'rgba(17,17,17,0.4)',
-                  borderColor: isOpen ? 'rgba(16, 185, 129, 0.3)' : 'rgba(255,255,255,0.08)',
+                  background: isOpen ? 'rgba(16, 185, 129, 0.05)' : 'var(--bg-card)',
+                  borderColor: isOpen ? 'rgba(16, 185, 129, 0.3)' : 'var(--border-1)',
                   cursor: 'pointer',
                 }}
                 onClick={() => setOpenIndex(isOpen ? null : i)}
               >
                 {/* Header Row */}
                 <div className="flex justify-between items-start mb-8">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl" style={{ background: 'var(--marquee-pill-bg)', border: '1px solid var(--border-1)' }}>
                     {ws.icon}
                   </div>
-                  <span className="font-display font-bold text-5xl leading-none text-[rgba(255,255,255,0.05)] select-none">
+                  <span className="font-display font-bold text-5xl leading-none select-none" style={{ color: 'var(--border-2)' }}>
                     0{i + 1}
                   </span>
                 </div>
@@ -138,7 +138,7 @@ export default function Workshops() {
                 {/* Title and Accordion Toggle */}
                 <div className="flex justify-between items-start gap-4 mb-2">
                   <div>
-                    <h3 className="font-sans font-bold text-2xl text-white mb-1">
+                    <h3 className="font-sans font-bold text-2xl mb-1" style={{ color: 'var(--text-1)' }}>
                       {ws.title}
                     </h3>
                     <p className="font-sans font-medium text-sm text-[#10B981]">
@@ -159,7 +159,7 @@ export default function Workshops() {
                     marginTop: isOpen ? '24px' : '0'
                   }}
                 >
-                  <p className="font-sans text-[rgba(255,255,255,0.6)] text-[15px] leading-relaxed mb-6">
+                  <p className="font-sans text-[15px] leading-relaxed mb-6" style={{ color: 'var(--text-2)' }}>
                     {ws.desc}
                   </p>
                   <p className="font-sans font-bold text-xs uppercase tracking-wider text-[#10B981] mb-4">
@@ -167,14 +167,14 @@ export default function Workshops() {
                   </p>
                   <ul className="space-y-3 mb-6">
                     {ws.bullets.map((b, j) => (
-                      <li key={j} className="flex gap-3 items-start font-sans text-[15px] text-[rgba(255,255,255,0.5)]">
+                      <li key={j} className="flex gap-3 items-start font-sans text-[15px]" style={{ color: 'var(--text-2)' }}>
                         <span className="text-[#10B981] mt-0.5 whitespace-nowrap">✦</span>
                         {b}
                       </li>
                     ))}
                   </ul>
-                  <div className="pt-6 border-t border-[rgba(255,255,255,0.08)]">
-                    <p className="font-sans italic text-sm text-[rgba(255,255,255,0.4)]">
+                  <div className="pt-6" style={{ borderTop: '1px solid var(--border-1)' }}>
+                    <p className="font-sans italic text-sm" style={{ color: 'var(--text-3)' }}>
                       {ws.audience}
                     </p>
                   </div>

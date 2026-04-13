@@ -19,7 +19,7 @@ export default function BrandShowcase() {
   const words = ['Build', 'Your', 'Brand', 'With'];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden" style={{ background: '#000000' }}>
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden" style={{ background: 'var(--bg-main)' }}>
       {/* Background glow */}
       <div 
         className="absolute inset-0 pointer-events-none"
@@ -176,7 +176,8 @@ export default function BrandShowcase() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={textVariants}
-                className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-white uppercase"
+                className="font-display font-bold text-3xl md:text-5xl lg:text-6xl uppercase"
+                style={{ color: 'var(--text-1)' }}
               >
                 {word}
               </motion.span>

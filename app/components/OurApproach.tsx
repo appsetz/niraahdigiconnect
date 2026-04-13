@@ -62,7 +62,7 @@ export default function OurApproach() {
       id="our-approach"
       className="relative"
       style={{ 
-        background: 'linear-gradient(180deg, #000000 0%, #050505 50%, #0a0a0a 100%)',
+        background: 'var(--bg-main)',
       }}
     >
       {/* Background noise texture */}
@@ -103,8 +103,8 @@ export default function OurApproach() {
             <span className="uppercase tracking-[0.3em] text-xs font-bold text-[#10B981] block mb-4">
               Why Choose Us
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-7xl text-white uppercase">
-              Our <span className="text-white/30">Approach</span>
+            <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-7xl uppercase" style={{ color: 'var(--text-1)' }}>
+              Our <span style={{ color: 'var(--text-4)' }}>Approach</span>
             </h2>
           </motion.div>
         </div>
@@ -125,8 +125,8 @@ export default function OurApproach() {
             <div 
               className="h-full relative overflow-hidden"
               style={{
-                background: '#000000',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-1)',
               }}
             >
               {/* Gradient orb */}
@@ -155,12 +155,12 @@ export default function OurApproach() {
                       </div>
                     </div>
                     <div>
-                      <span className="font-sans font-bold tracking-[0.2em] text-[10px] text-[rgba(255,255,255,0.5)] block mb-1">
+                      <span className="font-sans font-bold tracking-[0.2em] text-[10px] block mb-1" style={{ color: 'var(--text-2)' }}>
                         {feature.category}
                       </span>
                       <span 
                         className="font-display font-bold text-xl"
-                        style={{ color: feature.color }}
+                        style={{ color: feature.color, background: "rgba(0,0,0,0.02)" }}
                       >
                         {feature.number}
                       </span>
@@ -171,9 +171,9 @@ export default function OurApproach() {
                     href="#contact"
                     className="flex items-center gap-2 px-4 py-2 rounded-full font-sans font-bold text-[10px] tracking-wider uppercase"
                     style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: 'rgba(255, 255, 255, 0.7)',
+                      background: 'var(--marquee-pill-bg)',
+                      border: '1px solid var(--border-1)',
+                      color: 'var(--text-2)',
                     }}
                     whileHover={{
                       background: feature.color,
@@ -188,10 +188,10 @@ export default function OurApproach() {
                 </div>
 
                 {/* Main Content */}
-                <h3 className="font-display font-bold leading-[0.95] text-white tracking-tight mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <h3 className="font-display font-bold leading-[0.95] tracking-tight mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ color: 'var(--text-1)' }}>
                   {feature.title}
                 </h3>
-                <p className="font-sans text-sm sm:text-base md:text-lg leading-relaxed text-[rgba(255,255,255,0.5)] max-w-2xl">
+                <p className="font-sans text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl" style={{ color: 'var(--text-2)' }}>
                   {feature.desc}
                 </p>
 

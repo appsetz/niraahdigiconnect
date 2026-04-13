@@ -65,7 +65,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[85vh] md:min-h-screen items-center justify-center pt-24 pb-20 md:pt-32 md:pb-48 overflow-hidden bg-[#000000]"
+      className="relative flex min-h-[85vh] md:min-h-screen items-center justify-center pt-24 pb-20 md:pt-32 md:pb-48 overflow-hidden"
+      style={{ background: 'var(--bg-main)' }}
     >
       {/* Background Video with Scroll Trigger */}
       <motion.div 
@@ -80,10 +81,10 @@ export default function Hero() {
           playsInline
           className="h-full w-full object-cover"
         />
-        {/* Dark Emerald Tint Overlay */}
-        <div className="absolute inset-0 bg-[#000000] opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-40" />
-        <div className="absolute inset-0 bg-[rgba(16,185,129,0.05)]" />
+        {/* Tint Overlay */}
+        <div className="absolute inset-0 opacity-70" style={{ background: 'var(--bg-main)' }} />
+        <div className="absolute inset-0 opacity-50" style={{ background: 'linear-gradient(to top, var(--bg-main), transparent, var(--bg-main))' }} />
+        <div className="absolute inset-0 bg-[rgba(16,185,129,0.04)]" />
       </motion.div>
 
       {/* Background Atmospheric Glows */}
@@ -194,34 +195,37 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Badge / Subtitle */}
-        <motion.div 
+        {/* Badge */}
+        <motion.div
           variants={itemVariants}
-          className="mb-8 tracking-[0.2em] text-xs font-bold uppercase text-[rgba(255,255,255,0.4)] font-sans"
+          className="mb-5 inline-flex items-center gap-2 px-4 py-2 rounded-full font-sans text-xs font-semibold uppercase tracking-widest"
+          style={{ background: 'var(--marquee-pill-bg)', border: '1px solid var(--border-1)', color: 'var(--text-2)' }}
         >
-          Digital Alchemy Since 2024
+          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block" />
+          Niraah Digi Connect
         </motion.div>
 
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="mb-6 md:mb-8 font-display font-bold leading-[0.9] text-white px-2"
-          style={{ fontSize: 'clamp(40px, 9vw, 120px)', textTransform: 'uppercase' }}
+          className="mb-5 md:mb-7 font-display font-bold leading-[0.92] px-2"
+          style={{ fontSize: 'clamp(38px, 8.5vw, 110px)', textTransform: 'uppercase', color: 'var(--text-1)' }}
         >
-          Your Brand
+          Where Strategy
           <br />
           <span className="text-gradient">
-            Weaponized.
+            Meets Growth.
           </span>
         </motion.h1>
 
         {/* Sub-headline */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
-          className="mb-8 md:mb-12 max-w-3xl text-balance text-base md:text-xl font-light text-[rgba(255,255,255,0.5)] font-sans mx-auto leading-relaxed px-4"
+          className="mb-8 md:mb-12 max-w-2xl text-balance text-base md:text-lg font-light font-sans mx-auto leading-relaxed px-4"
+          style={{ color: 'var(--text-2)' }}
         >
           We don&apos;t sell random digital services. We build predictable systems
-          that turn attention into revenue and scale your business effortlessly.
+          that turn attention into revenue — and scale your business with measurable results.
         </motion.p>
 
         {/* CTAs */}
@@ -239,12 +243,13 @@ export default function Hero() {
       </motion.div>
 
       {/* Magic UI Marquee for Services */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-[rgba(255,255,255,0.05)] bg-[#050505] z-30">
+      <div className="absolute bottom-0 left-0 right-0 z-30" style={{ borderTop: '1px solid var(--border-1)', background: 'var(--bg-surface)' }}>
         <Marquee pauseOnHover className="[--duration:50s] py-4">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="mx-3 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] px-6 py-2 text-sm font-medium text-[rgba(255,255,255,0.6)] font-sans transition-colors hover:border-[#10B981] hover:text-[#10B981]"
+              className="mx-3 rounded-full px-6 py-2 text-sm font-medium font-sans transition-colors hover:text-[#10B981]"
+              style={{ border: '1px solid var(--border-1)', background: 'var(--marquee-pill-bg)', color: 'var(--text-2)' }}
             >
               {service}
             </div>
