@@ -76,11 +76,6 @@ const allTestimonials = [
     quote: 'Our social media engagement improved drastically after they started managing our page. The content is trendy, creative, and attracts the right audience. We\'ve seen an increase in appointment bookings directly through Instagram.',
   },
   {
-    name: 'Sriies Bakes',
-    category: 'Social Media' as Category,
-    quote: 'They beautifully showcased our products through creative posts and reels. Our follower base has grown steadily, and we now receive regular custom cake orders through social media.',
-  },
-  {
     name: 'RAACK Dance Academy',
     category: 'Social Media' as Category,
     quote: 'The team created engaging content that highlights our performances and classes. Enrollment inquiries increased within the first few months. Our page now looks professional and consistent.',
@@ -115,11 +110,6 @@ const allTestimonials = [
     name: 'Moni Makeup Artistry',
     category: 'Meta Ads' as Category,
     quote: 'As an independent makeup artist, I needed consistent leads. Their ad strategy helped me generate bridal and event bookings regularly. Very professional approach.',
-  },
-  {
-    name: 'Sriies Bakes',
-    category: 'Meta Ads' as Category,
-    quote: 'The campaigns helped us reach more local customers and increase custom cake orders. We saw noticeable growth in inquiries within a short time.',
   },
   {
     name: 'SKC Imitation Jewellery',

@@ -1,18 +1,26 @@
-.scroll-stack-wrapper {
+.scroll-stack-scroller {
   position: relative;
   width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
 }
 
 .scroll-stack-inner {
-  padding: 0 5rem 50rem;
+  padding: 20vh 5rem 50rem;
   min-height: 100vh;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .scroll-stack-inner {
-    padding: 0 1.5rem 40rem;
+    padding: 10vh 1.25rem 40rem;
   }
 }
 
@@ -20,32 +28,13 @@
   transform-origin: top center;
   will-change: transform, filter;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   width: 100%;
-  margin: 30px 0;
-  padding: 4rem;
-  border-radius: 48px;
+  margin: 20px 0;
+  border-radius: 24px;
   box-sizing: border-box;
   position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.scroll-stack-card.approach-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-1);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(16, 185, 129, 0.12);
-  min-height: 22rem;
-  pointer-events: auto;
-}
-
-@media (max-width: 768px) {
-  .scroll-stack-card {
-    padding: 2rem;
-    border-radius: 28px;
-    min-height: 18rem;
-  }
 }
 
 .scroll-stack-end {
