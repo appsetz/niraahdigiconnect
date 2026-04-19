@@ -4,7 +4,7 @@
   "description": "Marketing agency landing page with advanced parallax scrolling",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "niraah": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
